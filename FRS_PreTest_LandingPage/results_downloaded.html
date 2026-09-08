@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results · Future Ready Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="results-page-styles.css">
+</head>
+<body>
+
+  <!-- ===== SCREENSHOT PROTECTION LAYERS ===== -->
+  <div class="screenshot-shield" id="shield1"></div>
+  <div class="screenshot-flash" id="screenshotFlash"></div>
+  <div class="screenshot-black" id="screenshotBlack"></div>
+  <div class="screenshot-message-overlay" id="screenshotMessage">
+    <div class="msg-box">
+      <div style="margin-bottom: 0.75rem;">
+        <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #019CFE; margin-bottom: 0.4rem; text-align: center;">
+          Data Privacy Notice
+        </div>
+        <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #019CFE, #0CC0DF); margin: 0.4rem auto; border-radius: 2px;"></div>
+        <p style="text-align: justify; font-weight: 500; color: #1a2634; margin-top: 0.75rem; font-size: 0.95rem;">
+          As we treat your data with confidentiality, the results will be shared via the email you provided.
+        </p>
+      </div>
+      <div class="icon">🔒</div>
+
+      <!-- Divider -->
+      <div style="width: 100%; height: 1px; background: #e5eaf0; margin: 0.5rem 0 0.75rem 0;"></div>
+
+      <!-- Security Alert -->
+      <div>
+        <h3 style="font-size: 1.2rem; color: #1a2634; margin-bottom: 0.5rem;">Security Alert</h3>
+        <p style="text-align: justify; color: #4f5b68; font-size: 0.95rem; line-height: 1.6;">
+          Screenshots, application switching, and content copying are restricted to protect evaluation content.
+        </p>
+      </div>
+
+      <button class="ok-button" id="dismissProtection">Acknowledge</button>
+    </div>
+  </div>
+
+  <!-- ===== BACKGROUND ACCENT SHAPES ===== -->
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape square bg-shape-3"></div>
+  <div class="bg-shape square bg-shape-4"></div>
+  <div class="bg-shape bg-shape-5"></div>
+  <div class="bg-shape square bg-shape-6"></div>
+  <div class="bg-shape bg-shape-7"></div>
+
+  <div class="results-container">
+
+    <!-- ===== LOGO - TOP LEFT CORNER ===== -->
+    <div class="logo-container">
+      <img src="images/CloudSwyft_Logo.png" alt="CloudSwyft">
+    </div>
+
+    <!-- ===== RETURN TO HOME BUTTON ===== -->
+    <div class="home-button-container">
+      <a href="../FRS_PreTest_LandingPage/frs-pretest-landing.html" class="home-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        Return to Home
+      </a>
+    </div>
+
+    <!-- ===== CLOUDSWYFT PANEL - CONCISE ===== -->
+    <div class="cloud-panel">
+      <div style="flex:1;">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          Assessment Results
+        </div>
+        <h2>Your Future Ready Profile</h2>
+        <div class="sub">Insights from your responses on roles, interests, and personal qualities.</div>
+        <ul class="cloud-features">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Role Alignment:</span> Strong potential in tech-driven roles — you thrive on <span class="highlight">innovation and adaptability</span>.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Passion & Interests:</span> Naturally curious about <span class="highlight">creative problem-solving</span> and continuous learning.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Personal Qualities:</span> <span class="highlight">Collaborative leadership</span> and strong analytical thinking — a balanced mix of technical and interpersonal skills.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Growth Areas:</span> Develop <span class="highlight">digital literacy</span> and strategic thinking to unlock your full potential.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Next Steps:</span> We've identified <span class="highlight">3 recommended tracks</span> aligned with your strengths and aspirations.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="right-badge">
+        <span>⚡ results ready</span>
+        <strong>·</strong>
+        <span>track match</span>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENT SCORES ===== -->
+    <div class="score-summary">
+      <div class="label">📈 Assessment scores</div>
+      <div class="score-bars">
+        <div class="score-item">
+          <span class="name">Digital literacy</span>
+          <div class="bar-track"><div class="bar-fill high" style="width: 88%;"></div></div>
+          <span class="value">88</span>
+        </div>
+        <div class="score-item">
+          <span class="name">Critical thinking</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div>
+          <span class="value">72</span>
+        </div>
+        <div class="score-item">
+          <span class="name">Collaboration</span>
+          <div class="bar-track"><div class="bar-fill medium" style="width: 65%;"></div></div>
+          <span class="value">65</span>
+        </div>
+        <div class="score-item">
+          <span class="name">Adaptability</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 81%;"></div></div>
+          <span class="value">81</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RECOMMENDED TRACKS with Two-Column Layout ===== -->
+    <div style="margin-bottom: 0.75rem;">
+      <span class="tag track" style="font-size:14px; padding:6px 24px;">⭐ Top 3 Recommended Tracks</span>
+    </div>
+
+    <div class="tracks-wrapper">
+      <!-- Left: Track Cards -->
+      <div class="tracks-left" id="tracksLeft">
+        <div class="track-grid">
+          <!-- Track 1: Data Analytics -->
+          <div class="track-card" data-track="0" style="border-left-color: #1f8b4c;" onclick="openTrack(0)">
+            <div class="track-image">
+              <img src="images/Data_Analyst.png" alt="Data Analytics" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+              <div class="track-placeholder" style="display:none;">📊</div>
+            </div>
+            <div class="track-info">
+              <div class="track-name">Data Analytics</div>
+              <div class="track-desc">Data analysis · Machine learning · Statistical modeling</div>
+              <div class="track-detail">
+                <span class="label">Why it fits:</span> Your strong analytical mindset (72%) and adaptability (81%) make you an ideal candidate for data-driven roles.
+              </div>
+              <div class="click-hint">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Click to view details
+              </div>
+            </div>
+            <span class="tag high">match 92%</span>
+          </div>
+
+          <!-- Track 2: Artificial Intelligence -->
+          <div class="track-card" data-track="1" style="border-left-color: #1389eb;" onclick="openTrack(1)">
+            <div class="track-image">
+              <img src="images/Artificial Intelligence.png" alt="Artificial Intelligence" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+              <div class="track-placeholder" style="display:none;">🤖</div>
+            </div>
+            <div class="track-info">
+              <div class="track-name">Artificial Intelligence</div>
+              <div class="track-desc">Machine learning · Neural networks · AI ethics</div>
+              <div class="track-detail">
+                <span class="label">Why it fits:</span> Your digital literacy (88%) and passion for innovation align perfectly with AI.
+              </div>
+              <div class="click-hint">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Click to view details
+              </div>
+            </div>
+            <span class="tag" style="background:#1389eb;">match 78%</span>
+          </div>
+
+          <!-- Track 3: Cyber Security -->
+          <div class="track-card" data-track="2" style="border-left-color: #b68b40;" onclick="openTrack(2)">
+            <div class="track-image">
+              <img src="images/CyberSecurity.png" alt="Cyber Security" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+              <div class="track-placeholder" style="display:none;">🔒</div>
+            </div>
+            <div class="track-info">
+              <div class="track-name">Cyber Security</div>
+              <div class="track-desc">Network security · Threat analysis · Security operations</div>
+              <div class="track-detail">
+                <span class="label">Why it fits:</span> Your collaborative leadership skills (65%) and problem-solving abilities make you a strong candidate for security roles.
+              </div>
+              <div class="click-hint">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Click to view details
+              </div>
+            </div>
+            <span class="tag medium">match 63%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Detail Panel -->
+      <div class="track-detail-panel" id="trackDetailPanel">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+          <h2 style="font-size:1.3rem; color:#1a2634;" id="detailTitle">Track Details</h2>
+          <button class="close-detail" onclick="closeTrack()">✕</button>
+        </div>
+        <div class="placeholder" id="detailPlaceholder">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <h3>Select a track</h3>
+          <p>Click on any recommended track to view details here.</p>
+        </div>
+        <div id="detailContent" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer-meta">
+      <span>UI/UX · Anahaw · Masculino · Reyes · Santos</span>
+      <span style="display:inline-block; margin-left:1.2rem; opacity:0.6;">CloudSwyft</span>
+    </div>
+
+  </div>
+
+  <script>
+    // Track data with image paths for the detail panel
+    const tracks = [
+      {
+        name: "Data Analytics",
+        desc: "Data analysis · Machine learning · Statistical modeling",
+        detail: "Your strong analytical mindset (72%) and adaptability (81%) make you an ideal candidate for data-driven roles. You have the curiosity to uncover insights and the flexibility to work with evolving technologies.",
+        match: "92%",
+        matchClass: "high",
+        image: "images/Data_Analytics.png"
+      },
+      {
+        name: "Artificial Intelligence",
+        desc: "Machine learning · Neural networks · AI ethics",
+        detail: "Your digital literacy (88%) and passion for innovation align perfectly with AI. You possess the technical foundation and creative thinking needed to excel in this rapidly evolving field.",
+        match: "78%",
+        matchClass: "",
+        image: "images/AI.png"
+      },
+      {
+        name: "Cyber Security",
+        desc: "Network security · Threat analysis · Security operations",
+        detail: "Your collaborative leadership skills (65%) and problem-solving abilities make you a strong candidate for security roles. You can work effectively in teams to protect critical systems and data.",
+        match: "63%",
+        matchClass: "medium",
+        image: "images/CyberSec.png"
+      }
+    ];
+
+    let activeTrackIndex = -1;
+    let isAnimating = false;
+    let pendingTrackIndex = -1;
+    let transitionTimeout = null;
+
+    function openTrack(index) {
+      // If already animating, store the requested index for later
+      if (isAnimating) {
+        pendingTrackIndex = index;
+        return;
+      }
+
+      const leftPanel = document.getElementById('tracksLeft');
+      const detailPanel = document.getElementById('trackDetailPanel');
+      const placeholder = document.getElementById('detailPlaceholder');
+      const content = document.getElementById('detailContent');
+      const title = document.getElementById('detailTitle');
+
+      // Update active card styling
+      document.querySelectorAll('.track-card').forEach(c => c.classList.remove('active-track'));
+      const cards = document.querySelectorAll('.track-card');
+      if (cards[index]) {
+        cards[index].classList.add('active-track');
+      }
+
+      // Shrink left panel
+      leftPanel.classList.add('shrink');
+
+      // If panel is already open, close it first with animation
+      if (detailPanel.classList.contains('active')) {
+        isAnimating = true;
+        
+        // Close the panel
+        detailPanel.classList.remove('active');
+        
+        // Wait for close animation to complete, then open with new content
+        clearTimeout(transitionTimeout);
+        transitionTimeout = setTimeout(() => {
+          // Now update content and re-open
+          updateDetailContent(index);
+          
+          // Re-add active class to trigger open animation
+          detailPanel.classList.add('active');
+          
+          isAnimating = false;
+          
+          // Check if there's a pending track to open
+          if (pendingTrackIndex !== -1 && pendingTrackIndex !== index) {
+            const pendingIndex = pendingTrackIndex;
+            pendingTrackIndex = -1;
+            openTrack(pendingIndex);
+          }
+        }, 400); // Match this to your CSS transition duration
+      } else {
+        // Panel is closed - just open with animation
+        updateDetailContent(index);
+        detailPanel.classList.add('active');
+      }
+
+      activeTrackIndex = index;
+    }
+
+    function updateDetailContent(index) {
+      const placeholder = document.getElementById('detailPlaceholder');
+      const content = document.getElementById('detailContent');
+      const title = document.getElementById('detailTitle');
+
+      const track = tracks[index];
+      title.textContent = track.name;
+      placeholder.style.display = 'none';
+      content.style.display = 'block';
+      content.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div class="detail-image">
+            <img src="${track.image}" alt="${track.name}" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
+            <div class="image-placeholder" style="display:none;">
+              <span>${track.name} image</span>
+            </div>
+          </div>
+          <div>
+            <span style="font-size:14px; color:#5e6e7e;">${track.desc}</span>
+          </div>
+          <div style="padding:1rem; background:#f8fbff; border-radius:12px; border-left:4px solid #019CFE;">
+            <p style="font-size:14px; color:#1e2a36; line-height:1.6;">${track.detail}</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-top:0.5rem;">
+            <span style="font-size:13px; color:#4f5b68; font-weight:600;">Match Score:</span>
+            <span class="tag ${track.matchClass}" style="font-size:14px; padding:4px 16px;">${track.match}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function closeTrack() {
+      const leftPanel = document.getElementById('tracksLeft');
+      const detailPanel = document.getElementById('trackDetailPanel');
+      const placeholder = document.getElementById('detailPlaceholder');
+      const content = document.getElementById('detailContent');
+
+      leftPanel.classList.remove('shrink');
+      detailPanel.classList.remove('active');
+      placeholder.style.display = 'flex';
+      content.style.display = 'none';
+
+      document.querySelectorAll('.track-card').forEach(c => c.classList.remove('active-track'));
+
+      activeTrackIndex = -1;
+      pendingTrackIndex = -1;
+      
+      if (transitionTimeout) {
+        clearTimeout(transitionTimeout);
+        transitionTimeout = null;
+      }
+    }
+
+    // ===== OPTIMIZED SCREENSHOT PROTECTION WITH 2-SECOND DISMISS COOLDOWN =====
+    let protectionActive = false;
+    let isProtectionDismissed = false;
+    let protectionTriggerTimer = null;
+    let isThrottled = false;
+    let dismissCooldownActive = false;
+    let dismissCooldownTimer = null;
+    const DISMISS_COOLDOWN_DURATION = 2000; // 2 seconds
+
+    // DOM References
+    const shield = document.getElementById('shield1');
+    const flash = document.getElementById('screenshotFlash');
+    const black = document.getElementById('screenshotBlack');
+    const message = document.getElementById('screenshotMessage');
+    const dismissBtn = document.getElementById('dismissProtection');
+
+    function triggerScreenshotProtection() {
+      // Prevent multiple triggers
+      if (protectionActive) return;
+      if (isThrottled) return;
+      
+      // Throttle: prevent more than one trigger per 2 seconds
+      isThrottled = true;
+      setTimeout(() => {
+        isThrottled = false;
+      }, 2000);
+      
+      protectionActive = true;
+      isProtectionDismissed = false;
+
+      // Reset dismiss cooldown when protection triggers
+      dismissCooldownActive = true;
+      if (dismissCooldownTimer) {
+        clearTimeout(dismissCooldownTimer);
+        dismissCooldownTimer = null;
+      }
+
+      // Set dismiss cooldown timer (2 seconds before user can dismiss)
+      dismissCooldownTimer = setTimeout(() => {
+        dismissCooldownActive = false;
+        dismissCooldownTimer = null;
+        // Enable the dismiss button visually
+        if (dismissBtn) {
+          dismissBtn.style.opacity = '1';
+          dismissBtn.style.cursor = 'pointer';
+          dismissBtn.disabled = false;
+        }
+      }, DISMISS_COOLDOWN_DURATION);
+      
+      // Only apply styles if not already active
+      if (!shield.style.opacity || shield.style.opacity !== '0.8') {
+        shield.style.opacity = '0.8';
+        flash.classList.add('active');
+        black.classList.add('active');
+        message.classList.add('active');
+      }
+
+      // Disable dismiss button during cooldown
+      if (dismissBtn) {
+        dismissBtn.style.opacity = '0.5';
+        dismissBtn.style.cursor = 'not-allowed';
+        dismissBtn.disabled = true;
+      }
+    }
+
+    function dismissProtection(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // GUARD: Prevent dismissal during cooldown
+      if (dismissCooldownActive) {
+        // Visual feedback that button is disabled
+        if (dismissBtn) {
+          dismissBtn.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            dismissBtn.style.transform = '';
+          }, 200);
+        }
+        return;
+      }
+
+      if (!protectionActive) return;
+      if (isProtectionDismissed) return;
+      
+      isProtectionDismissed = true;
+      
+      flash.classList.remove('active');
+      black.classList.remove('active');
+      message.classList.remove('active');
+      shield.style.opacity = '';
+      
+      // Reset dismiss button state
+      if (dismissBtn) {
+        dismissBtn.style.opacity = '1';
+        dismissBtn.style.cursor = 'pointer';
+        dismissBtn.disabled = false;
+      }
+
+      // Clear dismiss cooldown timer
+      if (dismissCooldownTimer) {
+        clearTimeout(dismissCooldownTimer);
+        dismissCooldownTimer = null;
+      }
+      dismissCooldownActive = false;
+      
+      protectionActive = false;
+    }
+
+    // OK button listener
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', dismissProtection);
+      dismissBtn.addEventListener('mousedown', (e) => e.stopPropagation());
+    }
+
+    // Click outside to dismiss
+    if (message) {
+      message.addEventListener('click', function(e) {
+        if (e.target === this) {
+          dismissProtection(e);
+        }
+      });
+    }
+
+    // ===== OPTIMIZED APP SWITCHING DETECTION =====
+    let isPageVisible = true;
+    let isPageFocused = true;
+    let blurTimeout = null;
+
+    // Detect when window loses focus (switching to another app)
+    window.addEventListener('blur', function() {
+      isPageFocused = false;
+      
+      if (blurTimeout) {
+        clearTimeout(blurTimeout);
+        blurTimeout = null;
+      }
+      
+      blurTimeout = setTimeout(() => {
+        if (isPageVisible) {
+          triggerScreenshotProtection();
+        }
+        blurTimeout = null;
+      }, 50);
+    });
+
+    // Detect when window gains focus (coming back to the app)
+    window.addEventListener('focus', function() {
+      isPageFocused = true;
+      if (blurTimeout) {
+        clearTimeout(blurTimeout);
+        blurTimeout = null;
+      }
+    });
+
+    // Detect when user switches tabs
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        isPageVisible = false;
+        // Trigger protection when tab becomes hidden
+        triggerScreenshotProtection();
+      } else {
+        isPageVisible = true;
+      }
+    });
+
+    // ===== OPTIMIZED PRINT SCREEN PROTECTION =====
+    let keydownCooldown = false;
+
+    document.addEventListener('keydown', function(e) {
+      if (keydownCooldown) return;
+      
+      let shouldTrigger = false;
+
+      if (e.key === 'PrintScreen') {
+        shouldTrigger = true;
+        e.preventDefault();
+      }
+      
+      if (e.key === 's' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
+        shouldTrigger = true;
+        e.preventDefault();
+      }
+
+      if (e.key === 'Meta' || e.keyCode === 91 || e.keyCode === 92) {
+        shouldTrigger = true;
+      }
+
+      // Block Ctrl+C, Ctrl+X, Ctrl+U, F12
+      if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'x' || e.key === 'X')) ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+        return false;
+      }
+
+      if (shouldTrigger) {
+        keydownCooldown = true;
+        triggerScreenshotProtection();
+        setTimeout(() => {
+          keydownCooldown = false;
+        }, 300);
+      }
+    });
+
+    document.addEventListener('keyup', function(e) {
+      if (e.key === 'PrintScreen') {
+        triggerScreenshotProtection();
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // ===== ADDITIONAL PROTECTION =====
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    document.addEventListener('copy', function(e) { e.preventDefault(); return false; });
+    document.addEventListener('paste', function(e) { e.preventDefault(); return false; });
+    document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+
+    document.querySelectorAll('img').forEach(img => {
+      img.setAttribute('draggable', 'false');
+    });
+
+    // === PERFORMANCE: Clean up timers on page unload ===
+    window.addEventListener('beforeunload', function() {
+      if (protectionTriggerTimer) {
+        clearTimeout(protectionTriggerTimer);
+        protectionTriggerTimer = null;
+      }
+      if (dismissCooldownTimer) {
+        clearTimeout(dismissCooldownTimer);
+        dismissCooldownTimer = null;
+      }
+      if (blurTimeout) {
+        clearTimeout(blurTimeout);
+        blurTimeout = null;
+      }
+    });
+
+    console.log('🔒 Optimized screenshot protection enabled with 2-second dismiss cooldown.');
+  </script>
+
+</body>
+</html>

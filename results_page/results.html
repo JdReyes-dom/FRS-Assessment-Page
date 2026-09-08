@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results · Future Ready Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="results-page-styles.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav class="frs-navbar">
+    <div class="frs-navbar-inner">
+      <!-- Logo -->
+      <div class="frs-navbar-logo">
+        <img src="images/CloudSwyft_Logo.png" alt="CloudSwift" class="frs-nav-logo-img">
+      </div>
+
+      <!-- Navigation Links with Search on Left of Social Impact -->
+      <div class="frs-navbar-links-wrapper">
+        <!-- Search Bar - First in the links row -->
+        <div class="frs-nav-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search anything..." aria-label="Search">
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="frs-navbar-links">
+          <a href="#" class="frs-nav-link">Social Impact</a>
+          <a href="#" class="frs-nav-link">Blog</a>
+          <a href="#" class="frs-nav-link">Courses</a>
+          <a href="#" class="frs-nav-link">Assessment</a>
+          <a href="#" class="frs-nav-link">Projects</a>
+          <a href="#" class="frs-nav-link">FAQs</a>
+          <a href="#" class="frs-nav-link">Contact Us</a>
+        </div>
+
+        <!-- Request a Demo Button -->
+        <div class="frs-navbar-actions">
+          <a href="#" class="frs-nav-demo-btn">Request a Demo</a>
+          <!-- Hamburger Menu for Mobile -->
+          <button class="frs-nav-hamburger" id="frsNavHamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== SCREENSHOT PROTECTION LAYERS ===== -->
+  <div class="screenshot-shield" id="shield1"></div>
+  <div class="screenshot-flash" id="screenshotFlash"></div>
+  <div class="screenshot-black" id="screenshotBlack"></div>
+  <div class="screenshot-message-overlay" id="screenshotMessage">
+    <div class="msg-box">
+      <div style="margin-bottom: 0.75rem;">
+        <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #019CFE; margin-bottom: 0.4rem; text-align: center;">
+          Data Privacy Notice
+        </div>
+        <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #019CFE, #0CC0DF); margin: 0.4rem auto; border-radius: 2px;"></div>
+        <p style="text-align: justify; font-weight: 500; color: #1a2634; margin-top: 0.75rem; font-size: 0.95rem;">
+          As we treat your data with confidentiality, the results will be shared via the email you provided.
+        </p>
+      </div>
+      <div class="icon">🔒</div>
+
+      <!-- Divider -->
+      <div style="width: 100%; height: 1px; background: #e5eaf0; margin: 0.5rem 0 0.75rem 0;"></div>
+
+      <!-- Security Alert -->
+      <div>
+        <h3 style="font-size: 1.2rem; color: #1a2634; margin-bottom: 0.5rem;">Security Alert</h3>
+        <p style="text-align: justify; color: #4f5b68; font-size: 0.95rem; line-height: 1.6;">
+          Screenshots, application switching, and content copying are restricted to protect evaluation content.
+        </p>
+      </div>
+
+      <button class="ok-button" id="dismissProtection">Acknowledge</button>
+    </div>
+  </div>
+
+  <!-- ===== BACKGROUND ACCENT SHAPES ===== -->
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape square bg-shape-3"></div>
+  <div class="bg-shape square bg-shape-4"></div>
+  <div class="bg-shape bg-shape-5"></div>
+  <div class="bg-shape square bg-shape-6"></div>
+  <div class="bg-shape bg-shape-7"></div>
+
+  <div class="results-container">
+
+    <!-- ===== LOGO - TOP LEFT CORNER ===== -->
+    <div class="logo-container">
+      <img src="images/CloudSwyft_Logo.png" alt="CloudSwyft">
+    </div>
+
+    <!-- ===== BUTTONS CONTAINER ===== -->
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+      <!-- Return to Home Button -->
+      <div class="home-button-container" style="margin-bottom: 0;">
+        <a href="../FRS_PreTest_LandingPage/frs-pretest-landing.html" class="home-button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          Return to Home
+        </a>
+      </div>
+
+      <!-- Request a Copy Button -->
+      <div class="request-copy-container" style="margin-bottom: 0;">
+        <button class="request-copy-btn" id="requestCopyBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v16H4z"/>
+            <path d="M8 8h8v8H8z"/>
+            <path d="M12 4v4"/>
+            <path d="M8 12h8"/>
+            <path d="M12 16v-4"/>
+          </svg>
+          Request a Copy
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== CLOUDSWYFT PANEL - CONCISE ===== -->
+    <div class="cloud-panel">
+      <div style="flex:1;">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          Assessment Results
+        </div>
+        <h2>Your Future Ready Profile</h2>
+        <div class="sub">Insights from your responses on roles, interests, and personal qualities.</div>
+        <ul class="cloud-features">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Role Alignment:</span> Strong potential in tech-driven roles — you thrive on <span class="highlight">innovation and adaptability</span>.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Passion & Interests:</span> Naturally curious about <span class="highlight">creative problem-solving</span> and continuous learning.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Personal Qualities:</span> <span class="highlight">Collaborative leadership</span> and strong analytical thinking — a balanced mix of technical and interpersonal skills.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Growth Areas:</span> Develop <span class="highlight">digital literacy</span> and strategic thinking to unlock your full potential.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span><span class="highlight">Next Steps:</span> We've identified <span class="highlight">3 recommended tracks</span> aligned with your strengths and aspirations.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="right-badge">
+        <span>⚡ results ready</span>
+        <strong>·</strong>
+        <span>track match</span>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENT SCORES ===== -->
+    <div class="score-summary">
+      <div class="label">📈 Assessment scores</div>
+      <div class="score-bars">
+        <div class="score-item">
+          <span class="name">Digital literacy</span>
+          <div class="bar-track"><div class="bar-fill high" style="width: 88%;"></div></div>
+          <span class="value">88</span>
+        </div>
+        <div class="score-item">
+          <span class="name">Critical thinking</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div>
+          <span class="value">72</span>
+        </div>
+        <div class="score-item">
+          <span class="name">Collaboration</span>
+          <div class="bar-track"><div class="bar-fill medium" style="width: 65%;"></div></div>
+          <span class="value">65</span>
+        </div>
+        <div class="score-item">
+          <span class="name">Adaptability</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 81%;"></div></div>
+          <span class="value">81</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RECOMMENDED TRACKS with Two-Column Layout ===== -->
+    <div style="margin-bottom: 0.75rem;">
+      <span class="tag track" style="font-size:14px; padding:6px 24px;">⭐ Top 3 Recommended Tracks</span>
+    </div>
+
+    <div class="tracks-wrapper">
+      <!-- Left: Track Cards -->
+      <div class="tracks-left" id="tracksLeft">
+        <div class="track-grid">
+          <!-- Track 1: Data Analytics -->
+          <div class="track-card" data-track="0" style="border-left-color: #1f8b4c;" onclick="openTrack(0)">
+            <div class="track-image">
+              <img src="images/Data_Analyst.png" alt="Data Analytics" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+              <div class="track-placeholder" style="display:none;">📊</div>
+            </div>
+            <div class="track-info">
+              <div class="track-name">Data Analytics</div>
+              <div class="track-desc">Data analysis · Machine learning · Statistical modeling</div>
+              <div class="track-detail">
+                <span class="label">Why it fits:</span> Your strong analytical mindset (72%) and adaptability (81%) make you an ideal candidate for data-driven roles.
+              </div>
+              <div class="click-hint">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Click to view details
+              </div>
+            </div>
+            <span class="tag high">match 92%</span>
+          </div>
+
+          <!-- Track 2: Artificial Intelligence -->
+          <div class="track-card" data-track="1" style="border-left-color: #1389eb;" onclick="openTrack(1)">
+            <div class="track-image">
+              <img src="images/Artificial Intelligence.png" alt="Artificial Intelligence" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+              <div class="track-placeholder" style="display:none;">🤖</div>
+            </div>
+            <div class="track-info">
+              <div class="track-name">Artificial Intelligence</div>
+              <div class="track-desc">Machine learning · Neural networks · AI ethics</div>
+              <div class="track-detail">
+                <span class="label">Why it fits:</span> Your digital literacy (88%) and passion for innovation align perfectly with AI.
+              </div>
+              <div class="click-hint">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Click to view details
+              </div>
+            </div>
+            <span class="tag" style="background:#1389eb;">match 78%</span>
+          </div>
+
+          <!-- Track 3: Cyber Security -->
+          <div class="track-card" data-track="2" style="border-left-color: #b68b40;" onclick="openTrack(2)">
+            <div class="track-image">
+              <img src="images/CyberSecurity.png" alt="Cyber Security" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+              <div class="track-placeholder" style="display:none;">🔒</div>
+            </div>
+            <div class="track-info">
+              <div class="track-name">Cyber Security</div>
+              <div class="track-desc">Network security · Threat analysis · Security operations</div>
+              <div class="track-detail">
+                <span class="label">Why it fits:</span> Your collaborative leadership skills (65%) and problem-solving abilities make you a strong candidate for security roles.
+              </div>
+              <div class="click-hint">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Click to view details
+              </div>
+            </div>
+            <span class="tag medium">match 63%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Detail Panel -->
+      <div class="track-detail-panel" id="trackDetailPanel">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
+          <h2 style="font-size:1.3rem; color:#1a2634;" id="detailTitle">Track Details</h2>
+          <button class="close-detail" onclick="closeTrack()">✕</button>
+        </div>
+        <div class="placeholder" id="detailPlaceholder">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <h3>Select a track</h3>
+          <p>Click on any recommended track to view details here.</p>
+        </div>
+        <div id="detailContent" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer-meta">
+      <span>UI/UX · Anahaw · Masculino · Reyes · Santos</span>
+      <span style="display:inline-block; margin-left:1.2rem; opacity:0.6;">CloudSwyft</span>
+    </div>
+
+  </div>
+
+  <!-- ===== MODAL OVERLAY ===== -->
+  <div class="modal-overlay" id="requestModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      
+      <div class="modal-icon">📧</div>
+      <h2 class="modal-title">Request a Copy</h2>
+      <p class="modal-subtitle">Enter your details below to receive a complete copy of your assessment results via email.</p>
+
+      <!-- Form -->
+      <form id="requestForm" novalidate>
+        <div class="modal-form-group">
+          <label for="fullName">Full Name <span style="color: #dc3545;">*</span></label>
+          <input type="text" id="fullName" placeholder="Enter your full name" required>
+          <div class="modal-error" id="nameError">Please enter your full name.</div>
+        </div>
+
+        <div class="modal-form-group">
+          <label for="emailAddress">Email Address <span style="color: #dc3545;">*</span></label>
+          <input type="email" id="emailAddress" placeholder="Enter your email address" required>
+          <div class="modal-error" id="emailError">Please enter a valid email address.</div>
+        </div>
+
+        <div class="modal-form-group">
+          <label for="phoneNumber">Phone Number <span style="color: #7a8898; font-weight: 400;">(Optional)</span></label>
+          <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
+        </div>
+
+        <button type="submit" class="modal-submit-btn" id="submitRequest">Send Request</button>
+      </form>
+
+      <!-- Success Message -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="success-icon">✅</div>
+        <h3>Request Sent Successfully!</h3>
+        <p>Your complete results will be sent to your email shortly. Please check your inbox.</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // ================================================================
+  // 1. INITIALIZE EMAILJS WITH YOUR CREDENTIALS
+  // ================================================================
+  (function() {
+    // Your EmailJS Public Key
+    emailjs.init("0cO4He8BMHTz1jgHu");
+  })();
+
+  // ================================================================
+  // 2. TRACK DATA
+  // ================================================================
+  const tracks = [
+    {
+      name: "Data Analytics",
+      desc: "Data analysis · Machine learning · Statistical modeling",
+      detail: "Your strong analytical mindset (72%) and adaptability (81%) make you an ideal candidate for data-driven roles. You have the curiosity to uncover insights and the flexibility to work with evolving technologies.",
+      match: "92%",
+      matchClass: "high",
+      image: "images/Data_Analytics.png"
+    },
+    {
+      name: "Artificial Intelligence",
+      desc: "Machine learning · Neural networks · AI ethics",
+      detail: "Your digital literacy (88%) and passion for innovation align perfectly with AI. You possess the technical foundation and creative thinking needed to excel in this rapidly evolving field.",
+      match: "78%",
+      matchClass: "",
+      image: "images/AI.png"
+    },
+    {
+      name: "Cyber Security",
+      desc: "Network security · Threat analysis · Security operations",
+      detail: "Your collaborative leadership skills (65%) and problem-solving abilities make you a strong candidate for security roles. You can work effectively in teams to protect critical systems and data.",
+      match: "63%",
+      matchClass: "medium",
+      image: "images/CyberSec.png"
+    }
+  ];
+
+  // ================================================================
+  // 3. TRACK DETAIL ANIMATION
+  // ================================================================
+  let activeTrackIndex = -1;
+  let isAnimating = false;
+  let pendingTrackIndex = -1;
+  let transitionTimeout = null;
+
+  function openTrack(index) {
+    if (isAnimating) {
+      pendingTrackIndex = index;
+      return;
+    }
+
+    const leftPanel = document.getElementById('tracksLeft');
+    const detailPanel = document.getElementById('trackDetailPanel');
+    const placeholder = document.getElementById('detailPlaceholder');
+    const content = document.getElementById('detailContent');
+    const title = document.getElementById('detailTitle');
+
+    document.querySelectorAll('.track-card').forEach(c => c.classList.remove('active-track'));
+    const cards = document.querySelectorAll('.track-card');
+    if (cards[index]) {
+      cards[index].classList.add('active-track');
+    }
+
+    leftPanel.classList.add('shrink');
+
+    if (detailPanel.classList.contains('active')) {
+      isAnimating = true;
+      detailPanel.classList.remove('active');
+      clearTimeout(transitionTimeout);
+      transitionTimeout = setTimeout(() => {
+        updateDetailContent(index);
+        detailPanel.classList.add('active');
+        isAnimating = false;
+        if (pendingTrackIndex !== -1 && pendingTrackIndex !== index) {
+          const pendingIndex = pendingTrackIndex;
+          pendingTrackIndex = -1;
+          openTrack(pendingIndex);
+        }
+      }, 400);
+    } else {
+      updateDetailContent(index);
+      detailPanel.classList.add('active');
+    }
+
+    activeTrackIndex = index;
+  }
+
+  function updateDetailContent(index) {
+    const placeholder = document.getElementById('detailPlaceholder');
+    const content = document.getElementById('detailContent');
+    const title = document.getElementById('detailTitle');
+
+    const track = tracks[index];
+    title.textContent = track.name;
+    placeholder.style.display = 'none';
+    content.style.display = 'block';
+    content.innerHTML = `
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="detail-image">
+          <img src="${track.image}" alt="${track.name}" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
+          <div class="image-placeholder" style="display:none;">
+            <span>${track.name} image</span>
+          </div>
+        </div>
+        <div>
+          <span style="font-size:14px; color:#5e6e7e;">${track.desc}</span>
+        </div>
+        <div style="padding:1rem; background:#f8fbff; border-radius:12px; border-left:4px solid #019CFE;">
+          <p style="font-size:14px; color:#1e2a36; line-height:1.6;">${track.detail}</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-top:0.5rem;">
+          <span style="font-size:13px; color:#4f5b68; font-weight:600;">Match Score:</span>
+          <span class="tag ${track.matchClass}" style="font-size:14px; padding:4px 16px;">${track.match}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function closeTrack() {
+    const leftPanel = document.getElementById('tracksLeft');
+    const detailPanel = document.getElementById('trackDetailPanel');
+    const placeholder = document.getElementById('detailPlaceholder');
+    const content = document.getElementById('detailContent');
+
+    leftPanel.classList.remove('shrink');
+    detailPanel.classList.remove('active');
+    placeholder.style.display = 'flex';
+    content.style.display = 'none';
+
+    document.querySelectorAll('.track-card').forEach(c => c.classList.remove('active-track'));
+
+    activeTrackIndex = -1;
+    pendingTrackIndex = -1;
+    
+    if (transitionTimeout) {
+      clearTimeout(transitionTimeout);
+      transitionTimeout = null;
+    }
+  }
+
+  // ================================================================
+  // 4. REQUEST A COPY MODAL WITH EMAILJS & GOOGLE SHEETS
+  // ================================================================
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('requestModal');
+    const openBtn = document.getElementById('requestCopyBtn');
+    const closeBtn = document.getElementById('modalClose');
+    const form = document.getElementById('requestForm');
+    const successMsg = document.getElementById('modalSuccess');
+    const submitBtn = document.getElementById('submitRequest');
+
+    // Google Sheets Web App URL
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz31pyANUroexplInJDZyPRksBJ9VfZUoqrCKVYF3QAgj1bgoK2DVJODQ4_aVBCPz4K/exec';
+
+    // Open modal
+    openBtn.addEventListener('click', function() {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      form.reset();
+      form.style.display = 'block';
+      successMsg.style.display = 'none';
+      document.querySelectorAll('.modal-error').forEach(el => el.classList.remove('show'));
+      submitBtn.textContent = 'Send Request';
+      submitBtn.disabled = false;
+    });
+
+    // Close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // ================================================================
+    // 5. FORM SUBMISSION - MATCHING YOUR GOOGLE APPS SCRIPT EXACTLY
+    // ================================================================
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let isValid = true;
+      const name = document.getElementById('fullName');
+      const email = document.getElementById('emailAddress');
+      const phone = document.getElementById('phoneNumber');
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+
+      // Validate name
+      if (!name.value.trim() || name.value.trim().length < 2) {
+        nameError.classList.add('show');
+        isValid = false;
+      } else {
+        nameError.classList.remove('show');
+      }
+
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+        emailError.classList.add('show');
+        isValid = false;
+      } else {
+        emailError.classList.remove('show');
+      }
+
+      if (!isValid) return;
+
+      // ================================================================
+      // PREPARE DATA FOR GOOGLE SHEETS - EXACT MATCH TO YOUR SCRIPT
+      // Your script expects: fullName, email, phone, digitalLiteracy, 
+      // criticalThinking, collaboration, adaptability, track1, track2, track3
+      // ================================================================
+      const sheetData = {
+        // User Information - EXACT field names your script expects
+        fullName: name.value.trim(),
+        email: email.value.trim(),
+        phone: phone.value.trim() || 'Not provided',
+        
+        // Assessment Scores - EXACT field names your script expects
+        digitalLiteracy: 88,
+        criticalThinking: 72,
+        collaboration: 65,
+        adaptability: 81,
+        
+        // Track Information - EXACT field names your script expects
+        track1: tracks[0].name,
+        track2: tracks[1].name,
+        track3: tracks[2].name,
+        
+        // Also send match percentages if your script wants them
+        track1Match: tracks[0].match,
+        track2Match: tracks[1].match,
+        track3Match: tracks[2].match
+      };
+
+      // ================================================================
+      // PREPARE DATA FOR EMAILJS - MATCHES YOUR TEMPLATE
+      // ================================================================
+      const emailParams = {
+        to_name: name.value.trim(),
+        to_email: email.value.trim(),
+        phone: phone.value.trim() || 'Not provided',
+        digital_literacy: 88,
+        critical_thinking: 72,
+        collaboration: 65,
+        adaptability: 81,
+        track_1_name: tracks[0].name,
+        track_1_match: tracks[0].match,
+        track_1_desc: tracks[0].desc,
+        track_1_detail: tracks[0].detail,
+        track_2_name: tracks[1].name,
+        track_2_match: tracks[1].match,
+        track_2_desc: tracks[1].desc,
+        track_2_detail: tracks[1].detail,
+        track_3_name: tracks[2].name,
+        track_3_match: tracks[2].match,
+        track_3_desc: tracks[2].desc,
+        track_3_detail: tracks[2].detail
+      };
+
+      // Log what we're sending
+      console.log('📤 Sending to Google Sheets:', sheetData);
+      console.log('📤 Sending email with params:', emailParams);
+
+      // Disable button and show loading state
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // ================================================================
+      // SEND TO GOOGLE SHEETS
+      // ================================================================
+      fetch(GOOGLE_SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sheetData)
+      })
+      .then(() => {
+        console.log('✅ Data sent to Google Sheets');
+        
+        // ================================================================
+        // SEND EMAIL VIA EMAILJS
+        // ================================================================
+        return emailjs.send('service_jniipzu', 'template_wj3oent', emailParams);
+      })
+      .then(function(response) {
+        console.log('✅ Email sent successfully!', response);
+        
+        // Show success message
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+        submitBtn.textContent = 'Send Request';
+        submitBtn.disabled = false;
+        
+        // Auto close after 3 seconds
+        setTimeout(function() {
+          closeModal();
+        }, 3000);
+      })
+      .catch(function(error) {
+        console.error('❌ Submission failed. Full error:', error);
+        
+        // Build detailed error message
+        let errorMsg = 'Failed to send your request.\n\n';
+        
+        // Check for specific error types
+        if (error.text) {
+          errorMsg += '📝 Error details: ' + error.text + '\n';
+        }
+        if (error.status) {
+          errorMsg += '📊 Status: ' + error.status + '\n';
+        }
+        if (error.message) {
+          errorMsg += '💬 Message: ' + error.message + '\n';
+        }
+        
+        // Add helpful solutions based on error
+        if (error.text && error.text.toLowerCase().includes('template')) {
+          errorMsg += '\n💡 Solution: Check that all template variables exist in your EmailJS template.';
+        } else if (error.text && error.text.toLowerCase().includes('service')) {
+          errorMsg += '\n💡 Solution: Check that your EmailJS service is properly connected to an email account.';
+        } else if (error.text && error.text.toLowerCase().includes('key') || error.text && error.text.toLowerCase().includes('auth')) {
+          errorMsg += '\n💡 Solution: Check that your public key is correct and active.';
+        } else if (error.status === 429) {
+          errorMsg += '\n💡 Solution: You\'ve exceeded the rate limit. Please wait a moment and try again.';
+        } else if (error.status === 401) {
+          errorMsg += '\n💡 Solution: Authentication failed. Check your public key and service credentials.';
+        }
+        
+        alert(errorMsg);
+        submitBtn.textContent = 'Send Request';
+        submitBtn.disabled = false;
+      });
+    });
+  });
+
+  // ================================================================
+  // 6. OPTIMIZED SCREENSHOT PROTECTION
+  // ================================================================
+  let protectionActive = false;
+  let isProtectionDismissed = false;
+  let protectionTriggerTimer = null;
+  let isThrottled = false;
+  let dismissCooldownActive = false;
+  let dismissCooldownTimer = null;
+  const DISMISS_COOLDOWN_DURATION = 2000;
+
+  const shield = document.getElementById('shield1');
+  const flash = document.getElementById('screenshotFlash');
+  const black = document.getElementById('screenshotBlack');
+  const message = document.getElementById('screenshotMessage');
+  const dismissBtn = document.getElementById('dismissProtection');
+
+  function triggerScreenshotProtection() {
+    if (protectionActive || isThrottled) return;
+    
+    isThrottled = true;
+    setTimeout(() => {
+      isThrottled = false;
+    }, 2000);
+    
+    protectionActive = true;
+    isProtectionDismissed = false;
+
+    dismissCooldownActive = true;
+    if (dismissCooldownTimer) {
+      clearTimeout(dismissCooldownTimer);
+      dismissCooldownTimer = null;
+    }
+
+    dismissCooldownTimer = setTimeout(() => {
+      dismissCooldownActive = false;
+      dismissCooldownTimer = null;
+      if (dismissBtn) {
+        dismissBtn.style.opacity = '1';
+        dismissBtn.style.cursor = 'pointer';
+        dismissBtn.disabled = false;
+      }
+    }, DISMISS_COOLDOWN_DURATION);
+    
+    if (!shield.style.opacity || shield.style.opacity !== '0.8') {
+      shield.style.opacity = '0.8';
+      flash.classList.add('active');
+      black.classList.add('active');
+      message.classList.add('active');
+    }
+
+    if (dismissBtn) {
+      dismissBtn.style.opacity = '0.5';
+      dismissBtn.style.cursor = 'not-allowed';
+      dismissBtn.disabled = true;
+    }
+  }
+
+  function dismissProtection(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    if (dismissCooldownActive) {
+      if (dismissBtn) {
+        dismissBtn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          dismissBtn.style.transform = '';
+        }, 200);
+      }
+      return;
+    }
+
+    if (!protectionActive || isProtectionDismissed) return;
+    
+    isProtectionDismissed = true;
+    
+    flash.classList.remove('active');
+    black.classList.remove('active');
+    message.classList.remove('active');
+    shield.style.opacity = '';
+    
+    if (dismissBtn) {
+      dismissBtn.style.opacity = '1';
+      dismissBtn.style.cursor = 'pointer';
+      dismissBtn.disabled = false;
+    }
+
+    if (dismissCooldownTimer) {
+      clearTimeout(dismissCooldownTimer);
+      dismissCooldownTimer = null;
+    }
+    dismissCooldownActive = false;
+    
+    protectionActive = false;
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', dismissProtection);
+    dismissBtn.addEventListener('mousedown', (e) => e.stopPropagation());
+  }
+
+  if (message) {
+    message.addEventListener('click', function(e) {
+      if (e.target === this) {
+        dismissProtection(e);
+      }
+    });
+  }
+
+  // ================================================================
+  // 7. APP SWITCHING DETECTION
+  // ================================================================
+  let isPageVisible = true;
+  let isPageFocused = true;
+  let blurTimeout = null;
+
+  window.addEventListener('blur', function() {
+    isPageFocused = false;
+    
+    if (blurTimeout) {
+      clearTimeout(blurTimeout);
+      blurTimeout = null;
+    }
+    
+    blurTimeout = setTimeout(() => {
+      if (isPageVisible) {
+        triggerScreenshotProtection();
+      }
+      blurTimeout = null;
+    }, 50);
+  });
+
+  window.addEventListener('focus', function() {
+    isPageFocused = true;
+    if (blurTimeout) {
+      clearTimeout(blurTimeout);
+      blurTimeout = null;
+    }
+  });
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      isPageVisible = false;
+      triggerScreenshotProtection();
+    } else {
+      isPageVisible = true;
+    }
+  });
+
+  // ================================================================
+  // 8. PRINT SCREEN PROTECTION
+  // ================================================================
+  let keydownCooldown = false;
+
+  document.addEventListener('keydown', function(e) {
+    if (keydownCooldown) return;
+    
+    let shouldTrigger = false;
+
+    if (e.key === 'PrintScreen') {
+      shouldTrigger = true;
+      e.preventDefault();
+    }
+    
+    if (e.key === 's' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
+      shouldTrigger = true;
+      e.preventDefault();
+    }
+
+    if (e.key === 'Meta' || e.keyCode === 91 || e.keyCode === 92) {
+      shouldTrigger = true;
+    }
+
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'x' || e.key === 'X')) ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+      return false;
+    }
+
+    if (shouldTrigger) {
+      keydownCooldown = true;
+      triggerScreenshotProtection();
+      setTimeout(() => {
+        keydownCooldown = false;
+      }, 300);
+    }
+  });
+
+  document.addEventListener('keyup', function(e) {
+    if (e.key === 'PrintScreen') {
+      triggerScreenshotProtection();
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // ================================================================
+  // 9. ADDITIONAL PROTECTION
+  // ================================================================
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  document.addEventListener('copy', function(e) { e.preventDefault(); return false; });
+  document.addEventListener('paste', function(e) { e.preventDefault(); return false; });
+  document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
+  document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+
+  document.querySelectorAll('img').forEach(img => {
+    img.setAttribute('draggable', 'false');
+  });
+
+  // ================================================================
+  // 10. PERFORMANCE CLEANUP
+  // ================================================================
+  window.addEventListener('beforeunload', function() {
+    if (protectionTriggerTimer) {
+      clearTimeout(protectionTriggerTimer);
+      protectionTriggerTimer = null;
+    }
+    if (dismissCooldownTimer) {
+      clearTimeout(dismissCooldownTimer);
+      dismissCooldownTimer = null;
+    }
+    if (blurTimeout) {
+      clearTimeout(blurTimeout);
+      blurTimeout = null;
+    }
+  });
+
+  console.log('🔒 Optimized screenshot protection enabled with 2-second dismiss cooldown.');
+  console.log('📧 EmailJS configured with your credentials.');
+  console.log('📤 Service ID: service_jniipzu');
+  console.log('📝 Template ID: template_wj3oent');
+  console.log('🔑 Public Key: 0cO4He8BMHTz1jgHu');
+  console.log('📊 Google Sheets Web App URL:', GOOGLE_SHEETS_URL);
+
+  // ================================================================
+  // 11. MOBILE NAVIGATION TOGGLE
+  // ================================================================
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('frsNavHamburger');
+    const navLinks = document.querySelector('.frs-navbar-links-wrapper');
+    
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when a link is clicked (for better UX)
+      navLinks.querySelectorAll('.frs-nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

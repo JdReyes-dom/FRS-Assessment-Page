@@ -1,0 +1,204 @@
+/* ==========================================================================
+   INSTRUCTIONS FOR TEAM MEMBERS (Anahaw, Masculino, Reyes, Santos, CloudSwyft)
+   ==========================================================================
+   
+   STEP 1: Check if your HTML file already has the background shape <div> tags.
+           IF YOU DO NOT HAVE THEM YET, copy and paste these 7 lines near the 
+           top of your HTML <body> wrapper:
+
+           <div class="bg-shape bg-shape-1"></div>
+           <div class="bg-shape bg-shape-2"></div>
+           <div class="bg-shape square bg-shape-3"></div>
+           <div class="bg-shape square bg-shape-4"></div>
+           <div class="bg-shape bg-shape-5"></div>
+           <div class="bg-shape square bg-shape-6"></div>
+           <div class="bg-shape bg-shape-7"></div>
+
+   STEP 2: Link this CSS file in your HTML <head> section:
+           <link rel="stylesheet" href="shape-animations.css">
+           
+           OR copy and paste all the CSS code below directly into your main 
+           CSS stylesheet!
+   ========================================================================== */
+
+/* Base Background Shape Defaults & GPU Hardware Acceleration */
+.assessment-landing-wrapper .bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.assessment-landing-wrapper .bg-shape.square {
+  border-radius: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   SHAPE STYLING & ANIMATION ATTACHMENTS
+   -------------------------------------------------------------------------- */
+
+/* Shape 1: Large Top-Right Blue Radial Circle */
+.assessment-landing-wrapper .bg-shape-1 {
+  width: 400px;
+  height: 400px;
+  top: -120px;
+  right: -120px;
+  background: radial-gradient(circle, #019CFE 0%, #0CC0DF 100%);
+  opacity: 0.20;
+  animation: dreamyFloat1 18s ease-in-out infinite alternate;
+}
+
+/* Shape 2: Large Bottom-Left Blue Radial Circle */
+.assessment-landing-wrapper .bg-shape-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -80px;
+  left: -100px;
+  background: radial-gradient(circle, #31A8FF 0%, #019CFE 100%);
+  opacity: 0.18;
+  animation: dreamyFloat2 22s ease-in-out infinite alternate;
+}
+
+/* Shape 3: Top-Right Rotated Cyan Square */
+.assessment-landing-wrapper .bg-shape-3.square {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  right: -40px;
+  background: #7DE7EB;
+  opacity: 0.12;
+  transform: rotate(15deg);
+  box-shadow: 0 0 60px rgba(125, 231, 235, 0.2);
+  animation: dreamyRotateSquare1 20s ease-in-out infinite alternate;
+}
+
+/* Shape 4: Bottom-Left Rotated Cyan Square */
+.assessment-landing-wrapper .bg-shape-4.square {
+  width: 160px;
+  height: 160px;
+  bottom: 30%;
+  left: -50px;
+  background: #0CC0DF;
+  opacity: 0.14;
+  transform: rotate(-10deg);
+  box-shadow: 0 0 50px rgba(12, 192, 223, 0.2);
+  animation: dreamyRotateSquare2 16s ease-in-out infinite alternate;
+}
+
+/* Shape 5: Mid-Right Floating Circle */
+.assessment-landing-wrapper .bg-shape-5 {
+  width: 120px;
+  height: 120px;
+  top: 55%;
+  right: 5%;
+  background: radial-gradient(circle, #31A8FF 0%, #019CFE 100%);
+  opacity: 0.15;
+  animation: dreamyPulseSmall 14s ease-in-out infinite alternate;
+}
+
+/* Shape 6: Top-Left Rotated Square */
+.assessment-landing-wrapper .bg-shape-6.square {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 15%;
+  background: #019CFE;
+  opacity: 0.10;
+  transform: rotate(25deg);
+  box-shadow: 0 0 40px rgba(1, 156, 254, 0.2);
+  animation: dreamyRotateSquare1 24s ease-in-out infinite alternate-reverse;
+}
+
+/* Shape 7: Bottom-Right Small Circle */
+.assessment-landing-wrapper .bg-shape-7 {
+  width: 80px;
+  height: 80px;
+  bottom: 15%;
+  right: 20%;
+  background: radial-gradient(circle, #7DE7EB 0%, #0CC0DF 100%);
+  opacity: 0.12;
+  animation: dreamyPulseSmall 19s ease-in-out infinite alternate-reverse;
+}
+
+/* --------------------------------------------------------------------------
+   DREAMY KEYFRAME MOTIONS
+   -------------------------------------------------------------------------- */
+
+/* Smooth Drifting & Scale Pulsing for Circular Shapes */
+@keyframes dreamyFloat1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.20;
+  }
+  50% {
+    transform: translate(25px, 20px) scale(1.08);
+    opacity: 0.26;
+  }
+  100% {
+    transform: translate(-15px, 35px) scale(0.96);
+    opacity: 0.18;
+  }
+}
+
+@keyframes dreamyFloat2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translate(-20px, -25px) scale(1.10);
+    opacity: 0.24;
+  }
+  100% {
+    transform: translate(20px, -10px) scale(0.95);
+    opacity: 0.16;
+  }
+}
+
+/* Slow Rotational Shift & Pulse for Rotated Square Shapes */
+@keyframes dreamyRotateSquare1 {
+  0% {
+    transform: rotate(15deg) scale(1) translateY(0);
+    opacity: 0.12;
+  }
+  50% {
+    transform: rotate(32deg) scale(1.12) translateY(-18px);
+    opacity: 0.19;
+  }
+  100% {
+    transform: rotate(5deg) scale(0.98) translateY(12px);
+    opacity: 0.11;
+  }
+}
+
+@keyframes dreamyRotateSquare2 {
+  0% {
+    transform: rotate(-10deg) scale(1) translateX(0);
+    opacity: 0.14;
+  }
+  50% {
+    transform: rotate(-28deg) scale(1.14) translateX(22px);
+    opacity: 0.22;
+  }
+  100% {
+    transform: rotate(2deg) scale(0.96) translateX(-14px);
+    opacity: 0.13;
+  }
+}
+
+/* Gentle Pulsing & Vertical Drift for Small Accent Shapes */
+@keyframes dreamyPulseSmall {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 0.12;
+  }
+  50% {
+    transform: scale(1.22) translateY(-24px);
+    opacity: 0.20;
+  }
+  100% {
+    transform: scale(0.92) translateY(10px);
+    opacity: 0.10;
+  }
+}

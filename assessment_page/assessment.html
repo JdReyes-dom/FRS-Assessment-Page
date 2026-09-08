@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Assessment · Progress</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assessment-style.css">
+</head>
+
+<body>
+    <div class="screenshot-shield" id="shield1"></div>
+    <div class="screenshot-flash" id="screenshotFlash"></div>
+    <div class="screenshot-black" id="screenshotBlack"></div>
+    <div class="screenshot-message-overlay" id="screenshotMessage">
+        <div class="msg-box">
+          <div style="margin-bottom: 0.75rem;">
+            <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #019CFE; margin-bottom: 0.4rem; text-align: center;">
+              Data Privacy Notice
+            </div>
+            <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #019CFE, #0CC0DF); margin: 0.4rem auto; border-radius: 2px;"></div>
+            <p style="text-align: justify; font-weight: 500; color: #1a2634; margin-top: 0.75rem; font-size: 0.95rem;">
+              As we treat your assessment data with strict confidentiality, your evaluation responses will be securely processed to generate your personalized track recommendation.
+            </p>
+          </div>
+          <div class="icon">🔒</div>
+    
+          <div style="width: 100%; height: 1px; background: #e5eaf0; margin: 0.5rem 0 0.75rem 0;"></div>
+    
+          <div>
+            <h3 style="font-size: 1.2rem; color: #1a2634; margin-bottom: 0.5rem; text-align: center;">Security Alert</h3>
+            <p style="text-align: justify; color: #4f5b68; font-size: 0.95rem; line-height: 1.6;">
+              Screenshots, application switching, and content copying are restricted to protect evaluation content.
+            </p>
+          </div>
+    
+          <button class="ok-button" id="dismissProtection">Acknowledge</button>
+        </div>
+    </div>
+
+    <div class="assessment-landing-wrapper">
+        
+        <div class="bg-shape bg-shape-1"></div>
+        <div class="bg-shape bg-shape-2"></div>
+        <div class="bg-shape square bg-shape-3"></div>
+        <div class="bg-shape square bg-shape-4"></div>
+        <div class="bg-shape bg-shape-5"></div>
+        <div class="bg-shape square bg-shape-6"></div>
+        <div class="bg-shape bg-shape-7"></div>
+
+        <div class="assessment-wrapper">
+
+            <div class="unified-container">
+
+                <div id="page-instructions" class="page active">
+                    <h1>Welcome to the Assessment</h1>
+                    <p style="text-align: justify;">In this test, you'll encounter a series of situational statements to answer using a scale from 'Strongly Agree' to 'Strongly Disagree.' Your responses are treated as a reflection of your own experiences and opinions, ensuring the most accurate assessment.</p>
+                    <p class="ready-text">Ready to discover your ideal path? Let's begin!</p>
+                    <button class="nav-btn" id="beginBtn">Begin Assessment</button>
+                </div>
+
+                <div id="page-q1" class="page">
+                    <h2>Part 1 of 3: Roles and Environment</h2>
+                    <div class="question-block"><p>1. I thrive in a fast-paced work environment where I am required to meet tight deadlines.</p></div>
+                    <div class="question-block"><p>2. I am comfortable navigating ambiguous tasks where the final goal is not perfectly defined.</p></div>
+                    <div class="question-block"><p>3. I prefer roles where I can take charge, delegate tasks, and guide a team to success.</p></div>
+                    <div class="question-block"><p>4. I work best in a highly structured environment with clear rules and expectations.</p></div>
+                    <div class="question-block"><p>5. I see myself excelling in a remote or highly independent work setup.</p></div>
+                    <div class="question-block"><p>6. I actively seek out mentorship opportunities, either to learn from others or to teach them.</p></div>
+                    <div class="question-block"><p>7. I am energized by collaborative projects that require constant back-and-forth communication.</p></div>
+                    <div class="question-block"><p>8. I prefer working behind the scenes rather than being the public face of a project.</p></div>
+                    <div class="question-block"><p>9. I am quick to step up and mediate when there is a conflict within my team or group.</p></div>
+                    <div class="question-block"><p>10. I constantly look for ways to optimize my workflow and improve my daily environment.</p></div>
+                </div>
+
+                <div id="page-q2" class="page">
+                    <h2>Part 2 of 3: Hobbies and Interests</h2>
+                    <div class="question-block"><p>11. I frequently lose track of time when I am engaged in a creative activity like designing, writing, or drawing.</p></div>
+                    <div class="question-block"><p>12. I enjoy analyzing and breaking down complex systems just to see how they work.</p></div>
+                    <div class="question-block"><p>13. I am passionate about competitive activities (like sports or gaming) and actively strive to improve my rank or skill.</p></div>
+                    <div class="question-block"><p>14. I often spend my free time researching topics that are completely unrelated to my primary field of study or work.</p></div>
+                    <div class="question-block"><p>15. I find joy in organizing events, trips, or get-togethers for my friends and family.</p></div>
+                    <div class="question-block"><p>16. I love dedicating hours to building or creating something entirely from scratch.</p></div>
+                    <div class="question-block"><p>17. I prefer solitary hobbies (like reading or coding) over group activities.</p></div>
+                    <div class="question-block"><p>18. I regularly consume content (articles, videos, podcasts) related to the latest technology and industry trends.</p></div>
+                    <div class="question-block"><p>19. I enjoy puzzles, strategy games, or activities that require deep logical thinking.</p></div>
+                    <div class="question-block"><p>20. I use music, art, or digital media as a primary way to unwind and express myself.</p></div>
+                </div>
+
+                <div id="page-q3" class="page">
+                    <h2>Part 3 of 3: Personal Qualities</h2>
+                    <div class="question-block"><p>21. I consider myself a highly organized and detail-oriented person.</p></div>
+                    <div class="question-block"><p>22. I am highly resilient and bounce back quickly when faced with unexpected failures or setbacks.</p></div>
+                    <div class="question-block"><p>23. I naturally empathize with others and heavily consider their feelings when making decisions.</p></div>
+                    <div class="question-block"><p>24. I am highly self-motivated and rarely need external pressure to get my tasks done.</p></div>
+                    <div class="question-block"><p>25. I remain calm and collected, even during high-stress situations or emergencies.</p></div>
+                    <div class="question-block"><p>26. I am naturally curious and constantly ask "why" or "how" things function the way they do.</p></div>
+                    <div class="question-block"><p>27. I am a highly effective communicator, able to explain complex ideas simply.</p></div>
+                    <div class="question-block"><p>28. I easily adapt to sudden changes in plans without feeling overwhelmed or frustrated.</p></div>
+                    <div class="question-block"><p>29. I have a high level of patience when troubleshooting difficult or tedious problems.</p></div>
+                    <div class="question-block"><p>30. I feel a strong sense of responsibility and accountability toward my peers and community.</p></div>
+                </div>
+
+            </div>
+        </div> 
+
+    </div>
+
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-inner-content">
+            <div class="progress-header"></div>
+            <div class="progress-nav-row">
+                <button class="back-button" id="backButton" onclick="previousSet()">Back</button>
+
+                <div class="progress-track-wrapper">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="track-node node-1 active" id="node1"></div>
+                        <div class="track-node node-2" id="node2"></div>
+                        <div class="track-node node-3" id="node3"></div>
+
+                        <div class="character-marker" id="characterMarker">
+                            <img src="walking-static.png" alt="Walking character" class="character-gif" id="walkingGif">
+                        </div>
+                    </div>
+                    <div class="set-labels">
+                        <div class="set-label active" id="label1">Set 1</div>
+                        <div class="set-label" id="label2">Set 2</div>
+                        <div class="set-label" id="label3">Set 3</div>
+                    </div>
+                </div>
+
+                <button class="next-button" id="nextButton" onclick="nextSet()">Next Set</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assessment.js"></script>
+
+</body>
+
+</html>

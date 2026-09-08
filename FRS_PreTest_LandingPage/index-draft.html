@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRS Track Recommendation Assessment - Isolated Draft</title>
+
+  <!-- Open Sans Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Isolated Draft Stylesheet (Safe for Experimentation) -->
+  <link rel="stylesheet" href="frs-landing-styles-draft.css">
+</head>
+
+<body>
+
+  <!-- WordPress Scoped Container Wrapper -->
+  <div class="assessment-landing-wrapper">
+
+    <!-- SCREENSHOT & CONTENT PROTECTION OVERLAYS -->
+    <div class="screenshot-shield" id="shield1"></div>
+    <div class="screenshot-flash" id="screenshotFlash"></div>
+    <div class="screenshot-black" id="screenshotBlack"></div>
+    <div class="screenshot-message-overlay" id="screenshotMessage">
+      <div class="msg-box">
+        <!-- Header -->
+        <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #019CFE; margin-bottom: 0.4rem; text-align: center;">
+          Data Privacy Notice
+        </div>
+        
+        <!-- Accent Line -->
+        <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #019CFE, #0CC0DF); margin: 0.4rem auto 1.25rem; border-radius: 2px;"></div>
+        
+        <!-- Privacy Text -->
+        <p style="text-align: justify; font-weight: 500; color: #1a2634; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+          As we treat your assessment data with confidentiality, your evaluation responses will be securely processed to generate your personalized track recommendation.
+        </p>
+
+        <!-- Padlock Emoji -->
+        <div style="font-size: 3rem; text-align: center; margin: 0.75rem 0;">🔒</div>
+
+        <!-- Divider Line -->
+        <div style="width: 100%; height: 1px; background: #e5eaf0; margin: 1.25rem 0;"></div>
+
+        <!-- Security Alert Title & Text -->
+        <div style="margin-bottom: 1.75rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a2634; margin-bottom: 0.5rem; text-align: center;">Security Alert</h3>
+          <p style="text-align: center; color: #4f5b68; font-size: 0.925rem; line-height: 1.6;">
+            Screenshots, application switching, and content copying are restricted to protect evaluation content.
+          </p>
+        </div>
+
+        <!-- Pill-Shaped Acknowledge Button -->
+        <div style="text-align: center;">
+          <button id="dismissProtection" style="background: #019CFE; color: #ffffff; font-weight: 700; font-size: 0.95rem; padding: 12px 48px; border-radius: 9999px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(1, 156, 254, 0.35); transition: all 0.2s ease;">
+            Acknowledge
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC FLOATING BACKGROUND SHAPES -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape square bg-shape-3"></div>
+    <div class="bg-shape square bg-shape-4"></div>
+    <div class="bg-shape bg-shape-5"></div>
+    <div class="bg-shape square bg-shape-6"></div>
+    <div class="bg-shape bg-shape-7"></div>
+
+    <div class="pa-container">
+
+      <!-- Hero Section - Upper Left Logo, Upper Right Badge, Centered Title -->
+      <section class="pa-hero-section pa-hero-combined">
+        
+        <!-- HERO TOP BAR: Upper-Left Logo & Upper-Right Badge -->
+        <div class="pa-hero-top-bar">
+          <div class="pa-hero-logo-wrapper">
+            <img src="images/company-logo.svg" alt="Company Logo" class="pa-hero-logo" id="hero-logo-img">
+          </div>
+          <span class="pa-badge">Academic & Career Guidance</span>
+        </div>
+
+        <!-- Multi-Tone Title: Dark Charcoal + Blue Gradient -->
+        <h1 class="pa-hero-title">
+          <span class="pa-title-dark">FRS Track</span>
+          <span class="pa-title-blue-gradient">Recommendation Assessment</span>
+        </h1>
+
+        <!-- Short Description -->
+        <div class="pa-hero-description">
+          <p>This test is designed to help you discover the academic or career track that best matches your interests,
+            strengths, and preferences.</p>
+          <p>Select the response that best represents you. Honest responses will help provide the most accurate track
+            recommendation.</p>
+          <p>Upon completing the test, you'll receive a personalized track recommendation to help guide your educational
+            journey.</p>
+        </div>
+
+        <!-- Begin Assessment Button -->
+        <a href="instructions.html" class="pa-btn-primary" id="start-assessment-btn">
+          <span>Begin Assessment</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </section>
+
+      <div class="pa-section-divider"></div>
+
+      <!-- FRS Tracks Overview Section -->
+      <section class="pa-tracks-section">
+        <div class="pa-section-header">
+          <h2 class="pa-section-title">FRS Tracks</h2>
+          <p class="pa-section-subtitle">Explore the 10 specialized career and academic pathways available through this
+            assessment.</p>
+        </div>
+
+        <!-- Collection Grid (5 Cards per row desktop layout) -->
+        <div class="pa-tracks-grid">
+
+          <!-- Track 1: Artificial Intelligence -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-1-character.svg?v=2" alt="Artificial Intelligence" id="track-1-img">
+            </div>
+            <h3 class="pa-track-name">Artificial Intelligence</h3>
+            <p class="pa-track-description">Ideal for curious and innovative minds who are passionate about creating
+              intelligent systems that can learn, adapt, and solve real-world problems.</p>
+            <a href="#roles-ai" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 2: Big Data -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-2-character.svg?v=2" alt="Big Data" id="track-2-img">
+            </div>
+            <h3 class="pa-track-name">Big Data</h3>
+            <p class="pa-track-description">Perfect for detail-oriented individuals who are driven to organize, process,
+              and uncover valuable insights from large volumes of data.</p>
+            <a href="#roles-bigdata" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 3: Cyber Security -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-3-character.svg?v=2" alt="Cyber Security" id="track-3-img">
+            </div>
+            <h3 class="pa-track-name">Cyber Security</h3>
+            <p class="pa-track-description">Suited for vigilant and analytical individuals dedicated to protecting
+              systems, networks, and digital information from evolving cyber threats.</p>
+            <a href="#roles-cybersecurity" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 4: Data Analysis -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-4-character.svg?v=2" alt="Data Analysis" id="track-4-img">
+            </div>
+            <h3 class="pa-track-name">Data Analysis</h3>
+            <p class="pa-track-description">Well-suited for observant and logical thinkers passionate about transforming
+              data into meaningful insights that support informed decisions.</p>
+            <a href="#roles-dataanalysis" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 5: Data Science -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-5-character.svg?v=2" alt="Data Science" id="track-5-img">
+            </div>
+            <h3 class="pa-track-name">Data Science</h3>
+            <p class="pa-track-description">Ideal for analytical problem-solvers driven by curiosity and committed to
+              using data, mathematics, and technology to tackle complex challenges.</p>
+            <a href="#roles-datascience" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 6: DevOps -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-6-character.svg?v=2" alt="DevOps" id="track-6-img">
+            </div>
+            <h3 class="pa-track-name">DevOps</h3>
+            <p class="pa-track-description">Perfect for collaborative and adaptable individuals committed to improving
+              workflows, automating processes, and delivering reliable software solutions.</p>
+            <a href="#roles-devops" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 7: Internet of Things -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-7-character.svg?v=2" alt="Internet of Things" id="track-7-img">
+            </div>
+            <h3 class="pa-track-name">Internet of Things</h3>
+            <p class="pa-track-description">Designed for innovative and hands-on individuals passionate about connecting
+              devices and building smart technologies that improve everyday life.</p>
+            <a href="#roles-iot" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 8: Modern IT Support -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-8-character.svg?v=2" alt="Modern IT Support" id="track-8-img">
+            </div>
+            <h3 class="pa-track-name">Modern IT Support</h3>
+            <p class="pa-track-description">Suited for dependable and service-oriented individuals dedicated to
+              resolving technical issues and helping others make the most of technology, Virtual Assistants.</p>
+            <a href="#roles-itsupport" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 9: Software Development -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-9-character.svg?v=2" alt="Software Development" id="track-9-img">
+            </div>
+            <h3 class="pa-track-name">Software Development</h3>
+            <p class="pa-track-description">Ideal for creative and logical thinkers passionate about designing and
+              developing software solutions that address real-world needs.</p>
+            <a href="#roles-software" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+          <!-- Track 10: Web Development -->
+          <div class="pa-track-card">
+            <div class="pa-track-img-wrapper">
+              <img src="images/track-10-character.svg?v=2" alt="Web Development" id="track-10-img">
+            </div>
+            <h3 class="pa-track-name">Web Development</h3>
+            <p class="pa-track-description">Perfect for creative and detail-oriented individuals committed to building
+              engaging, accessible, and user-friendly digital experiences.</p>
+            <a href="#roles-web" class="pa-roles-link">View Potential Roles ↓</a>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="pa-section-divider"></div>
+
+      <!-- Potential Job Roles Section -->
+      <section class="pa-roles-section" id="target-audience-roles">
+        <div class="pa-section-header">
+          <h2 class="pa-section-title">Potential Career & Job Roles</h2>
+          <p class="pa-section-subtitle">Explore potential career roles and industry paths you can pursue by acquiring
+            skills in each FRS Track.</p>
+        </div>
+
+        <div class="pa-roles-grid">
+
+          <!-- Card 1: Artificial Intelligence -->
+          <div class="pa-role-card" id="roles-ai">
+            <div class="pa-role-header">
+              <img src="images/track-1-icon.svg?v=2" alt="[Artificial Intelligence Icon Placeholder]"
+                class="pa-role-icon-img" id="track-1-icon">
+              <h3 class="pa-role-track-title">Artificial Intelligence</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Any industry (student or professional)</span>
+              <span class="pa-role-pill">Developers & Programmers</span>
+              <span class="pa-role-pill">AI Algorithm Designers</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Big Data -->
+          <div class="pa-role-card" id="roles-bigdata">
+            <div class="pa-role-header">
+              <img src="images/track-2-icon.svg?v=2" alt="[Big Data Icon Placeholder]" class="pa-role-icon-img"
+                id="track-2-icon">
+              <h3 class="pa-role-track-title">Big Data</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Workforce Planner</span>
+              <span class="pa-role-pill">Supply Chain Members</span>
+              <span class="pa-role-pill">Procurement</span>
+              <span class="pa-role-pill">Stock Inventory Specialists</span>
+              <span class="pa-role-pill">Accountants</span>
+              <span class="pa-role-pill">HRIS Administrators</span>
+              <span class="pa-role-pill">Registrar</span>
+              <span class="pa-role-pill">Admin Personnel</span>
+              <span class="pa-role-pill">Hospital Admission Specialist/Officer</span>
+              <span class="pa-role-pill">BCP Officer</span>
+              <span class="pa-role-pill">Quality Assurance</span>
+              <span class="pa-role-pill">Government Personnel for Volume Transactions</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Cyber Security -->
+          <div class="pa-role-card" id="roles-cybersecurity">
+            <div class="pa-role-header">
+              <img src="images/track-3-icon.svg?v=2" alt="[Cyber Security Icon Placeholder]" class="pa-role-icon-img"
+                id="track-3-icon">
+              <h3 class="pa-role-track-title">Cyber Security</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">NBI</span>
+              <span class="pa-role-pill">CIDG</span>
+              <span class="pa-role-pill">Cloud Computing Specialist</span>
+              <span class="pa-role-pill">FinTech Member</span>
+              <span class="pa-role-pill">IT Engineers</span>
+              <span class="pa-role-pill">Infrastructure Engineers</span>
+              <span class="pa-role-pill">System Leads</span>
+              <span class="pa-role-pill">Administrators</span>
+              <span class="pa-role-pill">Auditors</span>
+              <span class="pa-role-pill">Forensics Engineers</span>
+              <span class="pa-role-pill">Lawyers</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Data Analysis -->
+          <div class="pa-role-card" id="roles-dataanalysis">
+            <div class="pa-role-header">
+              <img src="images/track-4-icon.svg?v=2" alt="[Data Analysis Icon Placeholder]" class="pa-role-icon-img"
+                id="track-4-icon">
+              <h3 class="pa-role-track-title">Data Analysis</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Encoders</span>
+              <span class="pa-role-pill">Data Analysts</span>
+              <span class="pa-role-pill">Supervisors & Up (All Industries)</span>
+              <span class="pa-role-pill">Accountants</span>
+              <span class="pa-role-pill">Digital Forensics Engineers</span>
+              <span class="pa-role-pill">Researchers</span>
+              <span class="pa-role-pill">Marketing Firm Specialist</span>
+              <span class="pa-role-pill">Popcom</span>
+              <span class="pa-role-pill">PSA</span>
+              <span class="pa-role-pill">Customs</span>
+              <span class="pa-role-pill">Drop Shippers</span>
+              <span class="pa-role-pill">PPE Specialists</span>
+              <span class="pa-role-pill">Workforce Management</span>
+              <span class="pa-role-pill">Supply Chain</span>
+              <span class="pa-role-pill">Procurement</span>
+              <span class="pa-role-pill">Virtual Assistants</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Data Science -->
+          <div class="pa-role-card" id="roles-datascience">
+            <div class="pa-role-header">
+              <img src="images/track-5-icon.svg?v=2" alt="[Data Science Icon Placeholder]" class="pa-role-icon-img"
+                id="track-5-icon">
+              <h3 class="pa-role-track-title">Data Science</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Data Analysts</span>
+              <span class="pa-role-pill">Accountants</span>
+              <span class="pa-role-pill">Digital Forensics Engineers</span>
+              <span class="pa-role-pill">Researchers</span>
+              <span class="pa-role-pill">Marketing Firm Specialist</span>
+              <span class="pa-role-pill">Popcom</span>
+              <span class="pa-role-pill">PSA</span>
+              <span class="pa-role-pill">Customs</span>
+              <span class="pa-role-pill">PPE Specialists</span>
+              <span class="pa-role-pill">Workforce Management</span>
+              <span class="pa-role-pill">Supply Chain</span>
+              <span class="pa-role-pill">Procurement</span>
+              <span class="pa-role-pill">Full Stack Developers</span>
+              <span class="pa-role-pill">Programmers</span>
+              <span class="pa-role-pill">Data Scientists</span>
+              <span class="pa-role-pill">Virtual Assistants</span>
+            </div>
+          </div>
+
+          <!-- Card 6: DevOps -->
+          <div class="pa-role-card" id="roles-devops">
+            <div class="pa-role-header">
+              <img src="images/track-6-icon.svg?v=2" alt="[DevOps Icon Placeholder]" class="pa-role-icon-img"
+                id="track-6-icon">
+              <h3 class="pa-role-track-title">DevOps</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">DevOps Specialist</span>
+              <span class="pa-role-pill">Full Stack Developers</span>
+              <span class="pa-role-pill">Executives</span>
+              <span class="pa-role-pill">Administrators</span>
+              <span class="pa-role-pill">Resource Planners</span>
+              <span class="pa-role-pill">Infrastructure Engineers</span>
+              <span class="pa-role-pill">Programmers</span>
+              <span class="pa-role-pill">Network Security</span>
+            </div>
+          </div>
+
+          <!-- Card 7: Internet of Things -->
+          <div class="pa-role-card" id="roles-iot">
+            <div class="pa-role-header">
+              <img src="images/track-7-icon.svg?v=2" alt="[Internet of Things Icon Placeholder]"
+                class="pa-role-icon-img" id="track-7-icon">
+              <h3 class="pa-role-track-title">Internet of Things</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Industrial Designer</span>
+              <span class="pa-role-pill">Civil Engineers</span>
+              <span class="pa-role-pill">Environmental Scientist</span>
+              <span class="pa-role-pill">Aeronautics Engineers</span>
+              <span class="pa-role-pill">Mechanical Engineers</span>
+              <span class="pa-role-pill">Chemical Engineers</span>
+              <span class="pa-role-pill">R&D Professionals</span>
+              <span class="pa-role-pill">Scientists</span>
+              <span class="pa-role-pill">Entrepreneurs</span>
+              <span class="pa-role-pill">Production Managers</span>
+              <span class="pa-role-pill">Lab Researchers</span>
+              <span class="pa-role-pill">Business Development Specialist</span>
+            </div>
+          </div>
+
+          <!-- Card 8: Modern IT Support -->
+          <div class="pa-role-card" id="roles-itsupport">
+            <div class="pa-role-header">
+              <img src="images/track-8-icon.svg?v=2" alt="[Modern IT Support Icon Placeholder]" class="pa-role-icon-img"
+                id="track-8-icon">
+              <h3 class="pa-role-track-title">Modern IT Support</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">BPO</span>
+              <span class="pa-role-pill">Customer Support (Online Transactions)</span>
+              <span class="pa-role-pill">IT Support Technician</span>
+              <span class="pa-role-pill">Telemarketers</span>
+              <span class="pa-role-pill">Hardware Technicians</span>
+              <span class="pa-role-pill">RPO Professionals</span>
+              <span class="pa-role-pill">Call Center & Hotline Agents</span>
+              <span class="pa-role-pill">Operations Managers</span>
+            </div>
+          </div>
+
+          <!-- Card 9: Software Development -->
+          <div class="pa-role-card" id="roles-software">
+            <div class="pa-role-header">
+              <img src="images/track-9-icon.svg?v=2" alt="[Software Development Icon Placeholder]"
+                class="pa-role-icon-img" id="track-9-icon">
+              <h3 class="pa-role-track-title">Software Development</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Full Stack Developers</span>
+              <span class="pa-role-pill">Content Developers</span>
+              <span class="pa-role-pill">Functional Consultants</span>
+              <span class="pa-role-pill">FinTech</span>
+              <span class="pa-role-pill">Game Developers</span>
+              <span class="pa-role-pill">SMEs</span>
+              <span class="pa-role-pill">UI/UX Designers</span>
+              <span class="pa-role-pill">Programmers</span>
+              <span class="pa-role-pill">Project Managers</span>
+            </div>
+          </div>
+
+          <!-- Track 10: Web Development -->
+          <div class="pa-role-card" id="roles-web">
+            <div class="pa-role-header">
+              <img src="images/track-10-icon.svg?v=2" alt="[Web Development Icon Placeholder]" class="pa-role-icon-img"
+                id="track-10-icon">
+              <h3 class="pa-role-track-title">Web Development</h3>
+            </div>
+            <div class="pa-role-group-label">Potential Roles You Can Pursue</div>
+            <div class="pa-tags-container">
+              <span class="pa-role-pill">Full Stack Developers</span>
+              <span class="pa-role-pill">Content Developers</span>
+              <span class="pa-role-pill">Functional Consultants</span>
+              <span class="pa-role-pill">FinTech</span>
+              <span class="pa-role-pill">Game Developers</span>
+              <span class="pa-role-pill">SMEs</span>
+              <span class="pa-role-pill">UI/UX Designers</span>
+              <span class="pa-role-pill">Programmers</span>
+              <span class="pa-role-pill">Project Managers</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===== FOOTER METADATA ===== -->
+      <div class="footer-meta">
+        <span>UI/UX · Anahaw · Masculino · Reyes · Santos</span>
+        <span style="display:inline-block; margin-left:1.2rem; opacity:0.6;">CloudSwyft</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Central Track Data -->
+  <script src="frs-pretest-tracks-data.js"></script>
+  <!-- Isolated Draft Page Logic with Advanced Security -->
+  <script src="script-draft.js"></script>
+</body>
+
+</html>
