@@ -3,9 +3,9 @@
 // ============================================================
 const scaleOptions = [
     { image: 'StronglyDisagree.png', label: 'Strongly Disagree' },
-    { image: 'disagree.png', label: 'Disagree' },
-    { image: 'neutral.png', label: 'Neutral' },
-    { image: 'agree.png', label: 'Agree' },
+    { image: 'Disagree.png', label: 'Disagree' },
+    { image: 'Neutral.png', label: 'Neutral' },
+    { image: 'Agree.png', label: 'Agree' },
     { image: 'StronglyAgree.png', label: 'Strongly Agree' }
 ];
 
