@@ -242,83 +242,34 @@ body {
 }
 
 /* ===== DREAMY KEYFRAME MOTIONS ===== */
-
-/* Smooth Drifting & Scale Pulsing for Circular Shapes */
 @keyframes dreamyFloat1 {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.20;
-  }
-  50% {
-    transform: translate(25px, 20px) scale(1.08);
-    opacity: 0.26;
-  }
-  100% {
-    transform: translate(-15px, 35px) scale(0.96);
-    opacity: 0.18;
-  }
+  0% { transform: translate(0, 0) scale(1); opacity: 0.20; }
+  50% { transform: translate(25px, 20px) scale(1.08); opacity: 0.26; }
+  100% { transform: translate(-15px, 35px) scale(0.96); opacity: 0.18; }
 }
 
 @keyframes dreamyFloat2 {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.18;
-  }
-  50% {
-    transform: translate(-20px, -25px) scale(1.10);
-    opacity: 0.24;
-  }
-  100% {
-    transform: translate(20px, -10px) scale(0.95);
-    opacity: 0.16;
-  }
+  0% { transform: translate(0, 0) scale(1); opacity: 0.18; }
+  50% { transform: translate(-20px, -25px) scale(1.10); opacity: 0.24; }
+  100% { transform: translate(20px, -10px) scale(0.95); opacity: 0.16; }
 }
 
-/* Slow Rotational Shift & Pulse for Rotated Square Shapes */
 @keyframes dreamyRotateSquare1 {
-  0% {
-    transform: rotate(15deg) scale(1) translateY(0);
-    opacity: 0.12;
-  }
-  50% {
-    transform: rotate(32deg) scale(1.12) translateY(-18px);
-    opacity: 0.19;
-  }
-  100% {
-    transform: rotate(5deg) scale(0.98) translateY(12px);
-    opacity: 0.11;
-  }
+  0% { transform: rotate(15deg) scale(1) translateY(0); opacity: 0.12; }
+  50% { transform: rotate(32deg) scale(1.12) translateY(-18px); opacity: 0.19; }
+  100% { transform: rotate(5deg) scale(0.98) translateY(12px); opacity: 0.11; }
 }
 
 @keyframes dreamyRotateSquare2 {
-  0% {
-    transform: rotate(-10deg) scale(1) translateX(0);
-    opacity: 0.14;
-  }
-  50% {
-    transform: rotate(-28deg) scale(1.14) translateX(22px);
-    opacity: 0.22;
-  }
-  100% {
-    transform: rotate(2deg) scale(0.96) translateX(-14px);
-    opacity: 0.13;
-  }
+  0% { transform: rotate(-10deg) scale(1) translateX(0); opacity: 0.14; }
+  50% { transform: rotate(-28deg) scale(1.14) translateX(22px); opacity: 0.22; }
+  100% { transform: rotate(2deg) scale(0.96) translateX(-14px); opacity: 0.13; }
 }
 
-/* Gentle Pulsing & Vertical Drift for Small Accent Shapes */
 @keyframes dreamyPulseSmall {
-  0% {
-    transform: scale(1) translateY(0);
-    opacity: 0.12;
-  }
-  50% {
-    transform: scale(1.22) translateY(-24px);
-    opacity: 0.20;
-  }
-  100% {
-    transform: scale(0.92) translateY(10px);
-    opacity: 0.10;
-  }
+  0% { transform: scale(1) translateY(0); opacity: 0.12; }
+  50% { transform: scale(1.22) translateY(-24px); opacity: 0.20; }
+  100% { transform: scale(0.92) translateY(10px); opacity: 0.10; }
 }
 
 .results-container {
@@ -1092,15 +1043,9 @@ body {
 }
 
 @keyframes gentlePulse {
-  0% {
-    box-shadow: 0 4px 16px rgba(1, 156, 254, 0.35);
-  }
-  50% {
-    box-shadow: 0 4px 24px rgba(1, 156, 254, 0.55);
-  }
-  100% {
-    box-shadow: 0 4px 16px rgba(1, 156, 254, 0.35);
-  }
+  0% { box-shadow: 0 4px 16px rgba(1, 156, 254, 0.35); }
+  50% { box-shadow: 0 4px 24px rgba(1, 156, 254, 0.55); }
+  100% { box-shadow: 0 4px 16px rgba(1, 156, 254, 0.35); }
 }
 
 .home-button {
@@ -1117,7 +1062,6 @@ body {
     font-size: 13px;
     gap: 0.4rem;
   }
-  
   .home-button svg {
     width: 17px;
     height: 17px;
@@ -1206,17 +1150,10 @@ body {
 }
 
 @keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== MODAL CONTENT ===== */
 .modal-content {
   background: #ffffff;
   border-radius: 24px;
@@ -1231,14 +1168,8 @@ body {
 }
 
 @keyframes modalSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .modal-close {
@@ -1376,28 +1307,23 @@ body {
   display: block;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   .request-copy-btn {
     padding: 0.6rem 1.4rem;
     font-size: 13px;
     gap: 0.4rem;
   }
-  
   .request-copy-btn svg {
     width: 17px;
     height: 17px;
   }
-  
   .modal-content {
     padding: 1.8rem;
     width: 95%;
   }
-  
   .modal-title {
     font-size: 1.2rem;
   }
-  
   .modal-form-group input,
   .modal-form-group select {
     padding: 0.6rem 0.8rem;
@@ -1432,7 +1358,6 @@ body {
   justify-content: space-between;
 }
 
-/* Logo */
 .frs-navbar-logo {
   flex-shrink: 0;
   margin-right: 40px;
@@ -1445,7 +1370,6 @@ body {
   filter: brightness(0) invert(1);
 }
 
-/* Navigation Links Wrapper */
 .frs-navbar-links-wrapper {
   display: flex;
   align-items: center;
@@ -1454,7 +1378,6 @@ body {
   gap: 20px;
 }
 
-/* Search Bar - White background with black text */
 .frs-nav-search {
   position: relative;
   display: flex;
@@ -1499,7 +1422,6 @@ body {
   width: 220px;
 }
 
-/* Navigation Links */
 .frs-navbar-links {
   display: flex;
   align-items: center;
@@ -1542,7 +1464,6 @@ body {
   width: 100%;
 }
 
-/* Request a Demo Button */
 .frs-navbar-actions {
   display: flex;
   align-items: center;
@@ -1571,7 +1492,6 @@ body {
   background: #f5f9ff;
 }
 
-/* Hamburger Menu */
 .frs-nav-hamburger {
   display: none;
   flex-direction: column;
@@ -1605,52 +1525,28 @@ body {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ========================================================
-   NAVIGATION RESPONSIVE
-   ======================================================== */
 @media (max-width: 1200px) {
-  .frs-navbar-links {
-    gap: 20px;
-  }
-  .frs-nav-search input {
-    width: 140px;
-  }
-  .frs-nav-search input:focus {
-    width: 170px;
-  }
+  .frs-navbar-links { gap: 20px; }
+  .frs-nav-search input { width: 140px; }
+  .frs-nav-search input:focus { width: 170px; }
 }
 
 @media (max-width: 1024px) {
-  .frs-navbar-links {
-    gap: 14px;
-  }
-  .frs-nav-link {
-    font-size: 13px;
-  }
+  .frs-navbar-links { gap: 14px; }
+  .frs-nav-link { font-size: 13px; }
   .frs-nav-search input {
     width: 120px;
     font-size: 12px;
     padding: 6px 12px 6px 34px;
   }
-  .frs-nav-search input:focus {
-    width: 140px;
-  }
-  .frs-nav-demo-btn {
-    font-size: 13px;
-    padding: 7px 16px;
-  }
+  .frs-nav-search input:focus { width: 140px; }
+  .frs-nav-demo-btn { font-size: 13px; padding: 7px 16px; }
 }
 
 @media (max-width: 900px) {
-  .frs-navbar-links-wrapper {
-    gap: 12px;
-  }
-  .frs-navbar-links {
-    gap: 10px;
-  }
-  .frs-nav-search input {
-    width: 100px;
-  }
+  .frs-navbar-links-wrapper { gap: 12px; }
+  .frs-navbar-links { gap: 10px; }
+  .frs-nav-search input { width: 100px; }
 }
 
 @media (max-width: 860px) {
@@ -1659,15 +1555,11 @@ body {
     padding: 0 16px;
     background: #009DFF;
   }
-
   .frs-nav-logo-img {
     height: 34px;
     filter: brightness(0) invert(1);
   }
-
-  .frs-nav-hamburger {
-    display: flex;
-  }
+  .frs-nav-hamburger { display: flex; }
 
   .frs-navbar-links-wrapper {
     position: fixed;
@@ -1711,17 +1603,9 @@ body {
     color: #1a2634;
   }
 
-  .frs-nav-search input::placeholder {
-    color: #999999;
-  }
-
-  .frs-nav-search input:focus {
-    width: 100%;
-  }
-
-  .frs-nav-search svg {
-    stroke: #666666;
-  }
+  .frs-nav-search input::placeholder { color: #999999; }
+  .frs-nav-search input:focus { width: 100%; }
+  .frs-nav-search svg { stroke: #666666; }
 
   .frs-navbar-links {
     flex-direction: column;
@@ -1741,13 +1625,8 @@ body {
     opacity: 0.9;
   }
 
-  .frs-nav-link:hover {
-    opacity: 1;
-  }
-
-  .frs-nav-link::after {
-    display: none;
-  }
+  .frs-nav-link:hover { opacity: 1; }
+  .frs-nav-link::after { display: none; }
 
   .frs-navbar-actions {
     order: 2;
@@ -1765,9 +1644,7 @@ body {
     text-align: center;
   }
 
-  .frs-nav-demo-btn:hover {
-    background: #f0f8ff;
-  }
+  .frs-nav-demo-btn:hover { background: #f0f8ff; }
 }
 
 @media (max-width: 480px) {
@@ -1776,23 +1653,17 @@ body {
     padding: 0 12px;
     background: #009DFF;
   }
-
   .frs-nav-logo-img {
     height: 30px;
     filter: brightness(0) invert(1);
   }
-
   .frs-navbar-links-wrapper {
     top: 58px;
     padding: 16px 16px 24px;
     background: #009DFF;
     max-height: calc(100vh - 58px);
   }
-
-  .frs-nav-link {
-    font-size: 15px;
-  }
-
+  .frs-nav-link { font-size: 15px; }
   .frs-nav-demo-btn {
     font-size: 13px;
     padding: 8px 20px;
@@ -1801,10 +1672,7 @@ body {
   }
 }
 
-/* Fix: Ensure navbar stays above all content */
-.frs-navbar {
-  z-index: 9999;
-}
+.frs-navbar { z-index: 9999; }
 
 /* ========================================================
    FIX: BODY PADDING FOR FIXED NAVBAR

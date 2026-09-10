@@ -6,25 +6,19 @@
   <title>Results · Future Ready Skills</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="results-page-styles.css">
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
   <!-- ===== NAVIGATION BAR ===== -->
   <nav class="frs-navbar">
     <div class="frs-navbar-inner">
-      <!-- Logo -->
       <div class="frs-navbar-logo">
-      <a href="https://adventurous-tower.localsite.io/">
-    <img src="images/CloudSwyft_Logo.png" alt="CloudSwift" class="frs-nav-logo-img">
-  </a>
-    </div>
-
-      <!-- Navigation Links with Search on Left of Social Impact -->
+        <a href="https://adventurous-tower.localsite.io/">
+          <img src="images/CloudSwyft_Logo.png" alt="CloudSwift" class="frs-nav-logo-img">
+        </a>
+      </div>
       <div class="frs-navbar-links-wrapper">
-        <!-- Search Bar - First in the links row -->
         <div class="frs-nav-search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
@@ -32,24 +26,18 @@
           </svg>
           <input type="text" placeholder="Search anything..." aria-label="Search">
         </div>
-
-        <!-- Navigation Links -->
         <div class="frs-navbar-links">
-        <a href="https://adventurous-tower.localsite.io/testimonials/" class="frs-nav-link">Social Impact</a>
-        <a href="https://adventurous-tower.localsite.io/news-and-social-updates/" class="frs-nav-link">Blog</a>
-        <a href="https://adventurous-tower.localsite.io/courses/" class="frs-nav-link">Courses</a>
-        <a href="https://adventurous-tower.localsite.io/dashboard/" class="frs-nav-link">Projects</a>
-        <a href="https://adventurous-tower.localsite.io/frequently-asked-questions/" class="frs-nav-link">FAQs</a>
-        <a href="https://adventurous-tower.localsite.io/contact-form/" class="frs-nav-link">Contact Us</a>
-      </div>
-        <!-- Request a Demo Button -->
+          <a href="https://adventurous-tower.localsite.io/testimonials/" class="frs-nav-link">Social Impact</a>
+          <a href="https://adventurous-tower.localsite.io/news-and-social-updates/" class="frs-nav-link">Blog</a>
+          <a href="https://adventurous-tower.localsite.io/courses/" class="frs-nav-link">Courses</a>
+          <a href="https://adventurous-tower.localsite.io/dashboard/" class="frs-nav-link">Projects</a>
+          <a href="https://adventurous-tower.localsite.io/frequently-asked-questions/" class="frs-nav-link">FAQs</a>
+          <a href="https://adventurous-tower.localsite.io/contact-form/" class="frs-nav-link">Contact Us</a>
+        </div>
         <div class="frs-navbar-actions">
           <a href="https://adventurous-tower.localsite.io/request-a-demo/" class="frs-nav-demo-btn">Request a Demo</a>
-          <!-- Hamburger Menu for Mobile -->
           <button class="frs-nav-hamburger" id="frsNavHamburger" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
           </button>
         </div>
       </div>
@@ -63,27 +51,20 @@
   <div class="screenshot-message-overlay" id="screenshotMessage">
     <div class="msg-box">
       <div style="margin-bottom: 0.75rem;">
-        <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #019CFE; margin-bottom: 0.4rem; text-align: center;">
-          Data Privacy Notice
-        </div>
+        <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #019CFE; margin-bottom: 0.4rem; text-align: center;">Data Privacy Notice</div>
         <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #019CFE, #0CC0DF); margin: 0.4rem auto; border-radius: 2px;"></div>
         <p style="text-align: justify; font-weight: 500; color: #1a2634; margin-top: 0.75rem; font-size: 0.95rem;">
           As we treat your data with confidentiality, the results will be shared via the email you provided.
         </p>
       </div>
       <div class="icon">🔒</div>
-
-      <!-- Divider -->
       <div style="width: 100%; height: 1px; background: #e5eaf0; margin: 0.5rem 0 0.75rem 0;"></div>
-
-      <!-- Security Alert -->
       <div>
         <h3 style="font-size: 1.2rem; color: #1a2634; margin-bottom: 0.5rem;">Security Alert</h3>
         <p style="text-align: justify; color: #4f5b68; font-size: 0.95rem; line-height: 1.6;">
           Screenshots, application switching, and content copying are restricted to protect evaluation content.
         </p>
       </div>
-
       <button class="ok-button" id="dismissProtection">Acknowledge</button>
     </div>
   </div>
@@ -106,7 +87,6 @@
 
     <!-- ===== BUTTONS CONTAINER ===== -->
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-      <!-- Return to Home Button -->
       <div class="home-button-container" style="margin-bottom: 0;">
         <a href="../FRS_PreTest_LandingPage/frs-pretest-landing.html" class="home-button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -115,23 +95,17 @@
           Return to Home
         </a>
       </div>
-
-      <!-- Request a Copy Button -->
       <div class="request-copy-container" style="margin-bottom: 0;">
         <button class="request-copy-btn" id="requestCopyBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16v16H4z"/>
-            <path d="M8 8h8v8H8z"/>
-            <path d="M12 4v4"/>
-            <path d="M8 12h8"/>
-            <path d="M12 16v-4"/>
+            <path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/><path d="M12 4v4"/><path d="M8 12h8"/><path d="M12 16v-4"/>
           </svg>
           Request a Copy
         </button>
       </div>
     </div>
 
-    <!-- ===== CLOUDSWYFT PANEL - CONCISE ===== -->
+    <!-- ===== CLOUDSWYFT PANEL ===== -->
     <div class="cloud-panel">
       <div style="flex:1;">
         <div class="badge">
@@ -140,28 +114,7 @@
         </div>
         <h2>Your Future Ready Profile</h2>
         <div class="sub">Insights from your responses on roles, interests, and personal qualities.</div>
-        <ul class="cloud-features">
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span><span class="highlight">Role Alignment:</span> Strong potential in tech-driven roles — you thrive on <span class="highlight">innovation and adaptability</span>.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span><span class="highlight">Passion & Interests:</span> Naturally curious about <span class="highlight">creative problem-solving</span> and continuous learning.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span><span class="highlight">Personal Qualities:</span> <span class="highlight">Collaborative leadership</span> and strong analytical thinking — a balanced mix of technical and interpersonal skills.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span><span class="highlight">Growth Areas:</span> Develop <span class="highlight">digital literacy</span> and strategic thinking to unlock your full potential.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span><span class="highlight">Next Steps:</span> We've identified <span class="highlight">3 recommended tracks</span> aligned with your strengths and aspirations.</span>
-          </li>
-        </ul>
+        <ul class="cloud-features" id="cloudFeatures"></ul>
       </div>
       <div class="right-badge">
         <span>⚡ results ready</span>
@@ -172,103 +125,22 @@
 
     <!-- ===== ASSESSMENT SCORES ===== -->
     <div class="score-summary">
-      <div class="label">📈 Assessment scores</div>
-      <div class="score-bars">
-        <div class="score-item">
-          <span class="name">Digital literacy</span>
-          <div class="bar-track"><div class="bar-fill high" style="width: 88%;"></div></div>
-          <span class="value">88</span>
-        </div>
-        <div class="score-item">
-          <span class="name">Critical thinking</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div>
-          <span class="value">72</span>
-        </div>
-        <div class="score-item">
-          <span class="name">Collaboration</span>
-          <div class="bar-track"><div class="bar-fill medium" style="width: 65%;"></div></div>
-          <span class="value">65</span>
-        </div>
-        <div class="score-item">
-          <span class="name">Adaptability</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 81%;"></div></div>
-          <span class="value">81</span>
-        </div>
-      </div>
+      <div class="label" id="scoreSummaryLabel">📈 Track Match Scores</div>
+      <div class="score-bars" id="scoreBars"></div>
     </div>
 
-    <!-- ===== RECOMMENDED TRACKS with Two-Column Layout ===== -->
+    <!-- ===== RECOMMENDED TRACKS ===== -->
     <div style="margin-bottom: 0.75rem;">
-      <span class="tag track" style="font-size:14px; padding:6px 24px;">⭐ Top 3 Recommended Tracks</span>
+      <span class="tag track" style="font-size:14px; padding:6px 24px;" id="recommendHeader">⭐ Top 5 Recommended Tracks</span>
     </div>
+
+    <div id="broadWarning" style="display:none; padding:14px 20px; background:#fff8e1; border-left:4px solid #f39c12; border-radius:8px; margin-bottom:16px; font-size:14px; color:#1e2a36; line-height:1.6;"></div>
+    <div id="tieMessage" style="display:none; padding: 12px 20px; background: #f0f9ff; border-left: 4px solid #019CFE; border-radius: 8px; margin-bottom: 16px; font-size: 14px; color: #1e2a36; line-height: 1.5;"></div>
 
     <div class="tracks-wrapper">
-      <!-- Left: Track Cards -->
       <div class="tracks-left" id="tracksLeft">
-        <div class="track-grid">
-          <!-- Track 1: Data Analytics -->
-          <div class="track-card" data-track="0" style="border-left-color: #1f8b4c;" onclick="openTrack(0)">
-            <div class="track-image">
-              <img src="images/Data_Analyst.png" alt="Data Analytics" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
-              <div class="track-placeholder" style="display:none;">📊</div>
-            </div>
-            <div class="track-info">
-              <div class="track-name">Data Analytics</div>
-              <div class="track-desc">Data analysis · Machine learning · Statistical modeling</div>
-              <div class="track-detail">
-                <span class="label">Why it fits:</span> Your strong analytical mindset (72%) and adaptability (81%) make you an ideal candidate for data-driven roles.
-              </div>
-              <div class="click-hint">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                Click to view details
-              </div>
-            </div>
-            <span class="tag high">match 92%</span>
-          </div>
-
-          <!-- Track 2: Artificial Intelligence -->
-          <div class="track-card" data-track="1" style="border-left-color: #1389eb;" onclick="openTrack(1)">
-            <div class="track-image">
-              <img src="images/Artificial Intelligence.png" alt="Artificial Intelligence" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
-              <div class="track-placeholder" style="display:none;">🤖</div>
-            </div>
-            <div class="track-info">
-              <div class="track-name">Artificial Intelligence</div>
-              <div class="track-desc">Machine learning · Neural networks · AI ethics</div>
-              <div class="track-detail">
-                <span class="label">Why it fits:</span> Your digital literacy (88%) and passion for innovation align perfectly with AI.
-              </div>
-              <div class="click-hint">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                Click to view details
-              </div>
-            </div>
-            <span class="tag" style="background:#1389eb;">match 78%</span>
-          </div>
-
-          <!-- Track 3: Cyber Security -->
-          <div class="track-card" data-track="2" style="border-left-color: #b68b40;" onclick="openTrack(2)">
-            <div class="track-image">
-              <img src="images/CyberSecurity.png" alt="Cyber Security" onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
-              <div class="track-placeholder" style="display:none;">🔒</div>
-            </div>
-            <div class="track-info">
-              <div class="track-name">Cyber Security</div>
-              <div class="track-desc">Network security · Threat analysis · Security operations</div>
-              <div class="track-detail">
-                <span class="label">Why it fits:</span> Your collaborative leadership skills (65%) and problem-solving abilities make you a strong candidate for security roles.
-              </div>
-              <div class="click-hint">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                Click to view details
-              </div>
-            </div>
-            <span class="tag medium">match 63%</span>
-          </div>
-        </div>
+        <div class="track-grid" id="trackGrid"></div>
       </div>
-
-      <!-- Right: Detail Panel -->
       <div class="track-detail-panel" id="trackDetailPanel">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
           <h2 style="font-size:1.3rem; color:#1a2634;" id="detailTitle">Track Details</h2>
@@ -295,34 +167,26 @@
   <div class="modal-overlay" id="requestModal">
     <div class="modal-content">
       <button class="modal-close" id="modalClose">&times;</button>
-      
       <div class="modal-icon">📧</div>
       <h2 class="modal-title">Request a Copy</h2>
       <p class="modal-subtitle">Enter your details below to receive a complete copy of your assessment results via email.</p>
-
-      <!-- Form -->
       <form id="requestForm" novalidate>
         <div class="modal-form-group">
           <label for="fullName">Full Name <span style="color: #dc3545;">*</span></label>
           <input type="text" id="fullName" placeholder="Enter your full name" required>
           <div class="modal-error" id="nameError">Please enter your full name.</div>
         </div>
-
         <div class="modal-form-group">
           <label for="emailAddress">Email Address <span style="color: #dc3545;">*</span></label>
           <input type="email" id="emailAddress" placeholder="Enter your email address" required>
           <div class="modal-error" id="emailError">Please enter a valid email address.</div>
         </div>
-
         <div class="modal-form-group">
           <label for="phoneNumber">Phone Number <span style="color: #7a8898; font-weight: 400;">(Optional)</span></label>
           <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
         </div>
-
         <button type="submit" class="modal-submit-btn" id="submitRequest">Send Request</button>
       </form>
-
-      <!-- Success Message -->
       <div class="modal-success" id="modalSuccess">
         <div class="success-icon">✅</div>
         <h3>Request Sent Successfully!</h3>
@@ -331,47 +195,350 @@
     </div>
   </div>
 
+  <!-- ===== SCORING DATA ===== -->
+  <script src="../assessment_page/frs-scoring-data.js"></script>
+
 <script>
   // ================================================================
-  // 1. INITIALIZE EMAILJS WITH YOUR CREDENTIALS
+  // 1. INITIALIZE EMAILJS
   // ================================================================
   (function() {
-    // Your EmailJS Public Key
     emailjs.init("0cO4He8BMHTz1jgHu");
   })();
 
   // ================================================================
-  // 2. TRACK DATA
+  // 2. LOAD ASSESSMENT RESULT
   // ================================================================
-  const tracks = [
-    {
-      name: "Data Analytics",
-      desc: "Data analysis · Machine learning · Statistical modeling",
-      detail: "Your strong analytical mindset (72%) and adaptability (81%) make you an ideal candidate for data-driven roles. You have the curiosity to uncover insights and the flexibility to work with evolving technologies.",
-      match: "92%",
-      matchClass: "high",
-      image: "images/Data_Analytics.png"
-    },
-    {
-      name: "Artificial Intelligence",
-      desc: "Machine learning · Neural networks · AI ethics",
-      detail: "Your digital literacy (88%) and passion for innovation align perfectly with AI. You possess the technical foundation and creative thinking needed to excel in this rapidly evolving field.",
-      match: "78%",
-      matchClass: "",
-      image: "images/AI.png"
-    },
-    {
-      name: "Cyber Security",
-      desc: "Network security · Threat analysis · Security operations",
-      detail: "Your collaborative leadership skills (65%) and problem-solving abilities make you a strong candidate for security roles. You can work effectively in teams to protect critical systems and data.",
-      match: "63%",
-      matchClass: "medium",
-      image: "images/CyberSec.png"
-    }
+  const STORAGE_KEY = 'frsAssessmentResult';
+  let assessmentResult = null;
+
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (raw) assessmentResult = JSON.parse(raw);
+  } catch (e) {
+    console.warn('Could not parse assessment result:', e);
+  }
+
+  // ================================================================
+  // 3. CONSTANTS
+  // ================================================================
+  const LOW_SCORE_THRESHOLD = 3;
+
+  // ================================================================
+  // 4. FALLBACK TRACKS
+  // ================================================================
+  const FALLBACK_TRACKS = [
+    { name: "Data Analytics", desc: "Data analysis · Machine learning · Statistical modeling", detail: "Complete the assessment to see your personalized track recommendation.", match: "0%", matchClass: "", image: "images/Data_Analytics.png", overview: "images/Data_Analytics.png", icon: "images/Data_Analytics.png" },
+    { name: "Artificial Intelligence", desc: "Machine learning · Neural networks · AI ethics", detail: "Complete the assessment to see your personalized track recommendation.", match: "0%", matchClass: "", image: "images/AI.png", overview: "images/AI.png", icon: "images/AI.png" },
+    { name: "Cyber Security", desc: "Network security · Threat analysis · Security operations", detail: "Complete the assessment to see your personalized track recommendation.", match: "0%", matchClass: "medium", image: "images/CyberSecurity.png", overview: "images/CyberSecurity.png", icon: "images/CyberSecurity.png" }
   ];
 
   // ================================================================
-  // 3. TRACK DETAIL ANIMATION
+  // 5. HELPERS
+  // ================================================================
+  function getTrackDesc(trackKey) {
+    const descriptors = {
+      "data-science": "Statistics · Machine learning · Data modeling",
+      "big-data": "Data pipelines · ETL · Volume processing",
+      "artificial-intelligence": "Machine learning · Neural networks · AI ethics",
+      "devops": "CI/CD · Automation · Cloud infrastructure",
+      "modern-it-support": "Technical support · Troubleshooting · Customer care",
+      "internet-of-things": "Embedded systems · Sensors · Smart devices",
+      "software-development": "Software design · Coding · Systems architecture",
+      "data-analyst": "Data analysis · Reporting · Insight generation",
+      "cyber-security": "Network security · Threat analysis · Security operations",
+      "web-development": "Frontend · Backend · User experience"
+    };
+    return descriptors[trackKey] || "Explore roles and skills in this track";
+  }
+
+  function getTrackImage(trackKey) {
+    const map = {
+      "artificial-intelligence": "images/track-1-character.png",
+      "big-data": "images/track-2-character.png",
+      "cyber-security": "images/track-3-character.png",
+      "data-analyst": "images/track-4-character.png",
+      "data-science": "images/track-5-character.png",
+      "devops": "images/track-6-character.png",
+      "internet-of-things": "images/track-7-character.png",
+      "modern-it-support": "images/track-8-character.png",
+      "software-development": "images/track-9-character.png",
+      "web-development": "images/track-10-character.png"
+    };
+    return map[trackKey] || "images/track-1-character.png";
+  }
+
+  function getTrackOverview(trackKey) {
+    const map = {
+      "artificial-intelligence": "images/track-1-overview.png",
+      "big-data": "images/track-2-overview.png",
+      "cyber-security": "images/track-3-overview.png",
+      "data-analyst": "images/track-4-overview.png",
+      "data-science": "images/track-5-overview.png",
+      "devops": "images/track-6-overview.png",
+      "internet-of-things": "images/track-7-overview.png",
+      "modern-it-support": "images/track-8-overview.png",
+      "software-development": "images/track-9-overview.png",
+      "web-development": "images/track-10-overview.png"
+    };
+    return map[trackKey] || "images/track-1-overview.png";
+  }
+
+  function getTrackIcon(trackKey) {
+    const map = {
+      "artificial-intelligence": "images/track-1-icon.png",
+      "big-data": "images/track-2-icon.png",
+      "cyber-security": "images/track-3-icon.png",
+      "data-analyst": "images/track-4-icon.png",
+      "data-science": "images/track-5-icon.png",
+      "devops": "images/track-6-icon.png",
+      "internet-of-things": "images/track-7-icon.png",
+      "modern-it-support": "images/track-8-icon.png",
+      "software-development": "images/track-9-icon.png",
+      "web-development": "images/track-10-icon.png"
+    };
+    return map[trackKey] || "images/track-1-icon.png";
+  }
+
+  // ================================================================
+  // 6. BUILD TRACKS: TOP 5 + TIE EXPANSION
+  // ================================================================
+  let tracks = FALLBACK_TRACKS;
+  let tieInfo = { hasTie: false, tiedAt: 0, count: 0 };
+  let isBroadProfile = false;
+
+  if (assessmentResult && assessmentResult.ranked && assessmentResult.ranked.length >= 5) {
+    const ranked = assessmentResult.ranked;
+    const topScore = ranked[0].score || 1;
+
+    isBroadProfile = assessmentResult.topScore < LOW_SCORE_THRESHOLD;
+
+    const selected = ranked.slice(0, 5);
+
+    const fifthScore = ranked[4].score;
+    let expandIndex = 5;
+    while (expandIndex < ranked.length && ranked[expandIndex].score === fifthScore) {
+      selected.push(ranked[expandIndex]);
+      expandIndex++;
+    }
+
+    const topScoreVal = ranked[0].score;
+    const secondScoreVal = ranked[1].score;
+    const hasTopTie = topScoreVal === secondScoreVal;
+    const hasBottomTie = selected.length > 5;
+
+    tieInfo.hasTie = hasTopTie || hasBottomTie;
+    tieInfo.tiedAt = hasTopTie ? 1 : (hasBottomTie ? 5 : 0);
+    tieInfo.count = selected.length;
+
+    tracks = selected.map((item, idx) => {
+      const profile = FRS_TRACK_PROFILES[item.key];
+      if (!profile) return FALLBACK_TRACKS[idx % FALLBACK_TRACKS.length];
+
+      const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
+
+      let matchClass = "";
+      if (idx === 0) matchClass = "high";
+      else if (idx === 1) matchClass = "";
+      else matchClass = "medium";
+
+      const whyFits = `Your responses aligned strongly with the ${profile.name} track. This pathway matches your interests, strengths, and preferences as reflected in your assessment.`;
+
+      return {
+        key: item.key,
+        name: profile.name,
+        desc: getTrackDesc(item.key),
+        detail: whyFits,
+        match: pct + "%",
+        matchClass: matchClass,
+        image: getTrackImage(item.key),
+        overview: getTrackOverview(item.key),
+        icon: getTrackIcon(item.key),
+        roles: profile.roles || [],
+        rawScore: item.score
+      };
+    });
+  }
+
+  // ================================================================
+  // 7. RENDER DYNAMIC CONTENT
+  // ================================================================
+  function renderDynamicContent() {
+    // ----- Cloud Features Panel -----
+    const cloudFeatures = document.getElementById('cloudFeatures');
+    if (cloudFeatures) {
+      let roleText, passionText, qualityText, growthText, nextText;
+
+      if (isBroadProfile) {
+        roleText = `Your responses didn't strongly align with any specific track. You may benefit from exploring <span class="highlight">multiple paths</span> before committing to one.`;
+        passionText = `Your answers suggest <span class="highlight">broad curiosity</span> — you may enjoy sampling different areas before specializing.`;
+        qualityText = `We couldn't identify a dominant strength area yet. <span class="highlight">Retaking the assessment</span> with more decisive answers may give a clearer profile.`;
+        growthText = `Consider exploring <span class="highlight">fundamentals</span> across several tracks to discover what resonates most.`;
+        nextText = `Explore the tracks below or <a href="../assessment_page/assessment.html" style="color:#7DE7EB; text-decoration:underline; font-weight:600;">retake the assessment</a> for a stronger match.`;
+      } else if (assessmentResult && tracks.length >= 1) {
+        const t1 = tracks[0].name;
+        const trackCount = tracks.length;
+        roleText = `Strong potential in tech-driven roles — your top match is <span class="highlight">${t1}</span>.`;
+        passionText = `Naturally curious about <span class="highlight">creative problem-solving</span> and continuous learning.`;
+        qualityText = `<span class="highlight">Analytical thinking</span> and adaptability — a balanced mix of technical and interpersonal skills.`;
+        growthText = `Develop <span class="highlight">digital literacy</span> and strategic thinking to unlock your full potential.`;
+        nextText = `We've identified <span class="highlight">${trackCount} recommended tracks</span> aligned with your strengths and aspirations.`;
+      } else {
+        roleText = `Strong potential in tech-driven roles — you thrive on <span class="highlight">innovation and adaptability</span>.`;
+        passionText = `Naturally curious about <span class="highlight">creative problem-solving</span> and continuous learning.`;
+        qualityText = `<span class="highlight">Collaborative leadership</span> and strong analytical thinking — a balanced mix of technical and interpersonal skills.`;
+        growthText = `Develop <span class="highlight">digital literacy</span> and strategic thinking to unlock your full potential.`;
+        nextText = `We've identified <span class="highlight">5 recommended tracks</span> aligned with your strengths and aspirations.`;
+      }
+
+      cloudFeatures.innerHTML = `
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span><span class="highlight">Role Alignment:</span> ${roleText}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span><span class="highlight">Passion & Interests:</span> ${passionText}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span><span class="highlight">Personal Qualities:</span> ${qualityText}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span><span class="highlight">Growth Areas:</span> ${growthText}</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span><span class="highlight">Next Steps:</span> ${nextText}</span>
+        </li>
+      `;
+    }
+
+    // ----- Score Bars (top 4 tracks with real scores) -----
+    const scoreBars = document.getElementById('scoreBars');
+    const scoreSummaryBox = document.querySelector('.score-summary');
+
+    if (scoreBars && assessmentResult && assessmentResult.ranked && assessmentResult.ranked.length > 0) {
+      const top4 = assessmentResult.ranked.slice(0, 4);
+      const maxScore = top4[0].score || 1;
+
+      scoreBars.innerHTML = top4.map(item => {
+        const pct = maxScore > 0 ? Math.round((item.score / maxScore) * 100) : 0;
+        let fillClass = "";
+        if (pct >= 80) fillClass = "high";
+        else if (pct >= 60) fillClass = "medium";
+        return `
+          <div class="score-item">
+            <span class="name">${item.name}</span>
+            <div class="bar-track"><div class="bar-fill ${fillClass}" style="width: ${pct}%;"></div></div>
+            <span class="value">${pct}</span>
+          </div>
+        `;
+      }).join('');
+    } else if (scoreSummaryBox) {
+      scoreSummaryBox.style.display = 'none';
+    }
+
+    // ----- Broad Profile Warning -----
+    const broadWarning = document.getElementById('broadWarning');
+    if (broadWarning) {
+      if (isBroadProfile) {
+        broadWarning.style.display = 'block';
+        broadWarning.innerHTML = `
+          <strong>⚠️ Broad Profile Detected:</strong>
+          Your responses didn't strongly match any single track. Consider exploring
+          multiple paths, or <a href="../assessment_page/assessment.html" style="color:#019CFE; font-weight:600; text-decoration:underline;">retake the assessment</a>
+          for a clearer recommendation.
+        `;
+      } else {
+        broadWarning.style.display = 'none';
+      }
+    }
+
+    // ----- Tie Message -----
+    const tieMessage = document.getElementById('tieMessage');
+    const recommendHeader = document.getElementById('recommendHeader');
+    if (tieMessage && tracks.length > 0) {
+      if (isBroadProfile) {
+        tieMessage.style.display = 'none';
+        if (recommendHeader) recommendHeader.textContent = `⭐ All Tracks (No Strong Match)`;
+      } else if (tieInfo.hasTie && tieInfo.count > 5) {
+        tieMessage.style.display = 'block';
+        tieMessage.textContent = `Your responses matched ${tieInfo.count} tracks closely — showing all of them for your review.`;
+        if (recommendHeader) recommendHeader.textContent = `⭐ ${tieInfo.count} Closely-Matched Tracks`;
+      } else if (tieInfo.tiedAt === 1 && tracks.length >= 2 && tracks[0].rawScore === tracks[1].rawScore) {
+        tieMessage.style.display = 'block';
+        tieMessage.textContent = `Your top matches are equally strong — you would likely thrive in any of them.`;
+        if (recommendHeader) recommendHeader.textContent = `⭐ ${tracks.length} Recommended Tracks`;
+      } else {
+        tieMessage.style.display = 'none';
+        if (recommendHeader) recommendHeader.textContent = `⭐ Top ${tracks.length} Recommended Tracks`;
+      }
+    }
+
+    // ----- Track Cards -----
+    const trackGrid = document.getElementById('trackGrid');
+    if (trackGrid) {
+      trackGrid.innerHTML = '';
+
+      const borderColors = ['#1f8b4c', '#1389eb', '#b68b40', '#7a8898', '#7a8898', '#7a8898', '#7a8898'];
+
+      tracks.forEach((track, idx) => {
+        const card = document.createElement('div');
+        card.className = 'track-card';
+        card.setAttribute('data-track', idx);
+        card.style.borderLeftColor = borderColors[idx] || '#7a8898';
+        card.setAttribute('onclick', `openTrack(${idx})`);
+
+        let matchTag;
+        if (isBroadProfile) {
+          matchTag = `<span class="tag medium">explore</span>`;
+        } else {
+          const isTopTie = idx === 0 && tracks.length > 1 && tracks[0].rawScore === tracks[1].rawScore;
+          const isTiedWithTop = idx > 0 && tracks[0] && track.rawScore === tracks[0].rawScore;
+
+          if (isTopTie || isTiedWithTop) {
+            matchTag = `<span class="tag high">tied match</span>`;
+          } else if (idx === 0) {
+            matchTag = `<span class="tag high">match ${track.match}</span>`;
+          } else {
+            matchTag = `<span class="tag ${track.matchClass}">match ${track.match}</span>`;
+          }
+        }
+
+        card.innerHTML = `
+          <div class="track-image">
+            <img src="${track.image}" alt="${track.name}"
+                 onerror="this.style.display='none'; this.parentElement.querySelector('.track-placeholder').style.display='flex';">
+            <div class="track-placeholder" style="display:none;">📊</div>
+          </div>
+          <div class="track-info">
+            <div class="track-name">${track.name}</div>
+            <div class="track-desc">${track.desc}</div>
+            <div class="track-detail">
+              <span class="label">Why it fits:</span> ${track.detail}
+            </div>
+            <div class="click-hint">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Click to view details
+            </div>
+          </div>
+          ${matchTag}
+        `;
+        trackGrid.appendChild(card);
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderDynamicContent);
+  } else {
+    renderDynamicContent();
+  }
+
+  // ================================================================
+  // 8. TRACK DETAIL ANIMATION
   // ================================================================
   let activeTrackIndex = -1;
   let isAnimating = false;
@@ -386,17 +553,24 @@
 
     const leftPanel = document.getElementById('tracksLeft');
     const detailPanel = document.getElementById('trackDetailPanel');
-    const placeholder = document.getElementById('detailPlaceholder');
-    const content = document.getElementById('detailContent');
-    const title = document.getElementById('detailTitle');
 
     document.querySelectorAll('.track-card').forEach(c => c.classList.remove('active-track'));
     const cards = document.querySelectorAll('.track-card');
-    if (cards[index]) {
-      cards[index].classList.add('active-track');
-    }
+    if (cards[index]) cards[index].classList.add('active-track');
 
     leftPanel.classList.add('shrink');
+
+    function scrollToDetail() {
+      if (!detailPanel) return;
+      const isStacked = window.matchMedia('(max-width: 820px)').matches;
+      if (isStacked) {
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 120);
+        });
+      }
+    }
 
     if (detailPanel.classList.contains('active')) {
       isAnimating = true;
@@ -406,6 +580,7 @@
         updateDetailContent(index);
         detailPanel.classList.add('active');
         isAnimating = false;
+        scrollToDetail();
         if (pendingTrackIndex !== -1 && pendingTrackIndex !== index) {
           const pendingIndex = pendingTrackIndex;
           pendingTrackIndex = -1;
@@ -415,6 +590,7 @@
     } else {
       updateDetailContent(index);
       detailPanel.classList.add('active');
+      scrollToDetail();
     }
 
     activeTrackIndex = index;
@@ -432,9 +608,9 @@
     content.innerHTML = `
       <div style="display:flex; flex-direction:column; gap:1rem;">
         <div class="detail-image">
-          <img src="${track.image}" alt="${track.name}" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
+          <img src="${track.overview}" alt="${track.name} overview" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
           <div class="image-placeholder" style="display:none;">
-            <span>${track.name} image</span>
+            <span>${track.name} overview</span>
           </div>
         </div>
         <div>
@@ -447,6 +623,14 @@
           <span style="font-size:13px; color:#4f5b68; font-weight:600;">Match Score:</span>
           <span class="tag ${track.matchClass}" style="font-size:14px; padding:4px 16px;">${track.match}</span>
         </div>
+        ${track.roles && track.roles.length ? `
+        <div style="margin-top:0.5rem;">
+          <div style="font-size:13px; font-weight:700; color:#1e2a36; margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.5px;">Potential Roles</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            ${track.roles.map(r => `<span class="tag" style="background:#eef3fc; color:#1e2a36; font-weight:500; font-size:12px; padding:4px 12px;">${r}</span>`).join('')}
+          </div>
+        </div>
+        ` : ''}
       </div>
     `;
   }
@@ -474,7 +658,7 @@
   }
 
   // ================================================================
-  // 4. REQUEST A COPY MODAL WITH EMAILJS & GOOGLE SHEETS
+  // 9. REQUEST A COPY MODAL — REAL SCORES FOR ALL TRACKS
   // ================================================================
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('requestModal');
@@ -484,10 +668,8 @@
     const successMsg = document.getElementById('modalSuccess');
     const submitBtn = document.getElementById('submitRequest');
 
-    // Google Sheets Web App URL
     const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz31pyANUroexplInJDZyPRksBJ9VfZUoqrCKVYF3QAgj1bgoK2DVJODQ4_aVBCPz4K/exec';
 
-    // Open modal
     openBtn.addEventListener('click', function() {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -499,7 +681,6 @@
       submitBtn.disabled = false;
     });
 
-    // Close modal
     function closeModal() {
       modal.classList.remove('active');
       document.body.style.overflow = '';
@@ -508,9 +689,7 @@
     closeBtn.addEventListener('click', closeModal);
 
     modal.addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeModal();
-      }
+      if (e.target === this) closeModal();
     });
 
     document.addEventListener('keydown', function(e) {
@@ -519,12 +698,9 @@
       }
     });
 
-    // ================================================================
-    // 5. FORM SUBMISSION - MATCHING YOUR GOOGLE APPS SCRIPT EXACTLY
-    // ================================================================
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       let isValid = true;
       const name = document.getElementById('fullName');
       const email = document.getElementById('emailAddress');
@@ -532,7 +708,6 @@
       const nameError = document.getElementById('nameError');
       const emailError = document.getElementById('emailError');
 
-      // Validate name
       if (!name.value.trim() || name.value.trim().length < 2) {
         nameError.classList.add('show');
         isValid = false;
@@ -540,7 +715,6 @@
         nameError.classList.remove('show');
       }
 
-      // Validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
         emailError.classList.add('show');
@@ -551,139 +725,116 @@
 
       if (!isValid) return;
 
-      // ================================================================
-      // PREPARE DATA FOR GOOGLE SHEETS - EXACT MATCH TO YOUR SCRIPT
-      // Your script expects: fullName, email, phone, digitalLiteracy, 
-      // criticalThinking, collaboration, adaptability, track1, track2, track3
-      // ================================================================
+      // ============================================================
+      // Build dynamic payloads — REAL scores for ALL tracks
+      // ============================================================
+      const ranked = (assessmentResult && assessmentResult.ranked)
+        ? assessmentResult.ranked
+        : [];
+
+      const topScore = (ranked[0] && ranked[0].score) || 1;
+
+      // Build a formatted score block for the email
+      // Example: "Web Development: 100%"
+      const scoreBlock = ranked
+        .map(item => {
+          const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
+          return item.name + ': ' + pct + '%';
+        })
+        .join('\n');
+
       const sheetData = {
-        // User Information - EXACT field names your script expects
         fullName: name.value.trim(),
         email: email.value.trim(),
         phone: phone.value.trim() || 'Not provided',
-        
-        // Assessment Scores - EXACT field names your script expects
-        digitalLiteracy: 88,
-        criticalThinking: 72,
-        collaboration: 65,
-        adaptability: 81,
-        
-        // Track Information - EXACT field names your script expects
-        track1: tracks[0].name,
-        track2: tracks[1].name,
-        track3: tracks[2].name,
-        
-        // Also send match percentages if your script wants them
-        track1Match: tracks[0].match,
-        track2Match: tracks[1].match,
-        track3Match: tracks[2].match
+        all_scores: scoreBlock
       };
 
-      // ================================================================
-      // PREPARE DATA FOR EMAILJS - MATCHES YOUR TEMPLATE
-      // ================================================================
       const emailParams = {
         to_name: name.value.trim(),
         to_email: email.value.trim(),
         phone: phone.value.trim() || 'Not provided',
-        digital_literacy: 88,
-        critical_thinking: 72,
-        collaboration: 65,
-        adaptability: 81,
-        track_1_name: tracks[0].name,
-        track_1_match: tracks[0].match,
-        track_1_desc: tracks[0].desc,
-        track_1_detail: tracks[0].detail,
-        track_2_name: tracks[1].name,
-        track_2_match: tracks[1].match,
-        track_2_desc: tracks[1].desc,
-        track_2_detail: tracks[1].detail,
-        track_3_name: tracks[2].name,
-        track_3_match: tracks[2].match,
-        track_3_desc: tracks[2].desc,
-        track_3_detail: tracks[2].detail
+        all_scores: scoreBlock,
+        all_scores_list: ranked.map(item => {
+          const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
+          return item.name + ' — ' + pct + '%';
+        }).join('\n'),
+        total_tracks: ranked.length
       };
 
-      // Log what we're sending
+      // Loop through every displayed track (for the recommended-tracks block)
+      tracks.forEach((t, i) => {
+        const n = i + 1;
+        sheetData[`track${n}`] = t.name || '';
+        sheetData[`track${n}Match`] = t.match || '';
+
+        emailParams[`track_${n}_name`] = t.name || '';
+        emailParams[`track_${n}_match`] = t.match || '';
+        emailParams[`track_${n}_desc`] = t.desc || '';
+        emailParams[`track_${n}_detail`] = t.detail || '';
+
+        emailParams[`track_${n}_full`] =
+          `${t.name} — Match: ${t.match}\n${t.desc}\n${t.detail}`;
+      });
+
+      // Combined "all tracks" block for the email body
+      emailParams.all_tracks = tracks
+        .map((t, i) => `${i + 1}. ${t.name} — Match: ${t.match}\n   ${t.desc}\n   ${t.detail}`)
+        .join('\n\n');
+
+      emailParams.all_tracks_simple = tracks
+        .map((t, i) => `${i + 1}. ${t.name} (${t.match})`)
+        .join('\n');
+
       console.log('📤 Sending to Google Sheets:', sheetData);
       console.log('📤 Sending email with params:', emailParams);
 
-      // Disable button and show loading state
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
-      // ================================================================
-      // SEND TO GOOGLE SHEETS
-      // ================================================================
+      // Fire-and-forget Google Sheets (non-blocking)
       fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(sheetData)
       })
       .then(() => {
-        console.log('✅ Data sent to Google Sheets');
-        
-        // ================================================================
-        // SEND EMAIL VIA EMAILJS
-        // ================================================================
-        return emailjs.send('service_jniipzu', 'template_wj3oent', emailParams);
+        console.log('✅ Google Sheets request sent (opaque response)');
       })
-      .then(function(response) {
-        console.log('✅ Email sent successfully!', response);
-        
-        // Show success message
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
-        submitBtn.textContent = 'Send Request';
-        submitBtn.disabled = false;
-        
-        // Auto close after 3 seconds
-        setTimeout(function() {
-          closeModal();
-        }, 3000);
-      })
-      .catch(function(error) {
-        console.error('❌ Submission failed. Full error:', error);
-        
-        // Build detailed error message
-        let errorMsg = 'Failed to send your request.\n\n';
-        
-        // Check for specific error types
-        if (error.text) {
-          errorMsg += '📝 Error details: ' + error.text + '\n';
-        }
-        if (error.status) {
-          errorMsg += '📊 Status: ' + error.status + '\n';
-        }
-        if (error.message) {
-          errorMsg += '💬 Message: ' + error.message + '\n';
-        }
-        
-        // Add helpful solutions based on error
-        if (error.text && error.text.toLowerCase().includes('template')) {
-          errorMsg += '\n💡 Solution: Check that all template variables exist in your EmailJS template.';
-        } else if (error.text && error.text.toLowerCase().includes('service')) {
-          errorMsg += '\n💡 Solution: Check that your EmailJS service is properly connected to an email account.';
-        } else if (error.text && error.text.toLowerCase().includes('key') || error.text && error.text.toLowerCase().includes('auth')) {
-          errorMsg += '\n💡 Solution: Check that your public key is correct and active.';
-        } else if (error.status === 429) {
-          errorMsg += '\n💡 Solution: You\'ve exceeded the rate limit. Please wait a moment and try again.';
-        } else if (error.status === 401) {
-          errorMsg += '\n💡 Solution: Authentication failed. Check your public key and service credentials.';
-        }
-        
-        alert(errorMsg);
-        submitBtn.textContent = 'Send Request';
-        submitBtn.disabled = false;
+      .catch((err) => {
+        console.warn('⚠️ Google Sheets fetch failed (non-blocking):', err);
       });
+
+      // Send the email — this is what the user actually cares about
+      emailjs.send('service_jniipzu', 'template_wj3oent', emailParams)
+        .then(function(response) {
+          console.log('✅ Email sent successfully!', response);
+
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          submitBtn.textContent = 'Send Request';
+          submitBtn.disabled = false;
+
+          setTimeout(closeModal, 3000);
+        })
+        .catch(function(error) {
+          console.error('❌ Email submission failed. Full error:', error);
+
+          let errorMsg = 'Failed to send your request.\n\n';
+          if (error.text) errorMsg += '📝 Error details: ' + error.text + '\n';
+          if (error.status) errorMsg += '📊 Status: ' + error.status + '\n';
+          if (error.message) errorMsg += '💬 Message: ' + error.message + '\n';
+
+          alert(errorMsg);
+          submitBtn.textContent = 'Send Request';
+          submitBtn.disabled = false;
+        });
     });
   });
 
   // ================================================================
-  // 6. OPTIMIZED SCREENSHOT PROTECTION
+  // 10. SCREENSHOT PROTECTION
   // ================================================================
   let protectionActive = false;
   let isProtectionDismissed = false;
@@ -701,82 +852,41 @@
 
   function triggerScreenshotProtection() {
     if (protectionActive || isThrottled) return;
-    
     isThrottled = true;
-    setTimeout(() => {
-      isThrottled = false;
-    }, 2000);
-    
+    setTimeout(() => { isThrottled = false; }, 2000);
     protectionActive = true;
     isProtectionDismissed = false;
-
     dismissCooldownActive = true;
-    if (dismissCooldownTimer) {
-      clearTimeout(dismissCooldownTimer);
-      dismissCooldownTimer = null;
-    }
-
+    if (dismissCooldownTimer) { clearTimeout(dismissCooldownTimer); dismissCooldownTimer = null; }
     dismissCooldownTimer = setTimeout(() => {
       dismissCooldownActive = false;
       dismissCooldownTimer = null;
-      if (dismissBtn) {
-        dismissBtn.style.opacity = '1';
-        dismissBtn.style.cursor = 'pointer';
-        dismissBtn.disabled = false;
-      }
+      if (dismissBtn) { dismissBtn.style.opacity = '1'; dismissBtn.style.cursor = 'pointer'; dismissBtn.disabled = false; }
     }, DISMISS_COOLDOWN_DURATION);
-    
     if (!shield.style.opacity || shield.style.opacity !== '0.8') {
       shield.style.opacity = '0.8';
       flash.classList.add('active');
       black.classList.add('active');
       message.classList.add('active');
     }
-
-    if (dismissBtn) {
-      dismissBtn.style.opacity = '0.5';
-      dismissBtn.style.cursor = 'not-allowed';
-      dismissBtn.disabled = true;
-    }
+    if (dismissBtn) { dismissBtn.style.opacity = '0.5'; dismissBtn.style.cursor = 'not-allowed'; dismissBtn.disabled = true; }
   }
 
   function dismissProtection(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
+    if (e) { e.preventDefault(); e.stopPropagation(); }
     if (dismissCooldownActive) {
-      if (dismissBtn) {
-        dismissBtn.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          dismissBtn.style.transform = '';
-        }, 200);
-      }
+      if (dismissBtn) { dismissBtn.style.transform = 'scale(0.95)'; setTimeout(() => { dismissBtn.style.transform = ''; }, 200); }
       return;
     }
-
     if (!protectionActive || isProtectionDismissed) return;
-    
     isProtectionDismissed = true;
-    
     flash.classList.remove('active');
     black.classList.remove('active');
     message.classList.remove('active');
     shield.style.opacity = '';
-    
-    if (dismissBtn) {
-      dismissBtn.style.opacity = '1';
-      dismissBtn.style.cursor = 'pointer';
-      dismissBtn.disabled = false;
-    }
-
-    if (dismissCooldownTimer) {
-      clearTimeout(dismissCooldownTimer);
-      dismissCooldownTimer = null;
-    }
+    if (dismissBtn) { dismissBtn.style.opacity = '1'; dismissBtn.style.cursor = 'pointer'; dismissBtn.disabled = false; }
+    if (dismissCooldownTimer) { clearTimeout(dismissCooldownTimer); dismissCooldownTimer = null; }
     dismissCooldownActive = false;
-    
     protectionActive = false;
   }
 
@@ -786,143 +896,65 @@
   }
 
   if (message) {
-    message.addEventListener('click', function(e) {
-      if (e.target === this) {
-        dismissProtection(e);
-      }
-    });
+    message.addEventListener('click', function(e) { if (e.target === this) dismissProtection(e); });
   }
 
-  // ================================================================
-  // 7. APP SWITCHING DETECTION
-  // ================================================================
   let isPageVisible = true;
   let isPageFocused = true;
   let blurTimeout = null;
 
   window.addEventListener('blur', function() {
     isPageFocused = false;
-    
-    if (blurTimeout) {
-      clearTimeout(blurTimeout);
-      blurTimeout = null;
-    }
-    
+    if (blurTimeout) { clearTimeout(blurTimeout); blurTimeout = null; }
     blurTimeout = setTimeout(() => {
-      if (isPageVisible) {
-        triggerScreenshotProtection();
-      }
+      if (isPageVisible) triggerScreenshotProtection();
       blurTimeout = null;
     }, 50);
   });
 
   window.addEventListener('focus', function() {
     isPageFocused = true;
-    if (blurTimeout) {
-      clearTimeout(blurTimeout);
-      blurTimeout = null;
-    }
+    if (blurTimeout) { clearTimeout(blurTimeout); blurTimeout = null; }
   });
 
   document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-      isPageVisible = false;
-      triggerScreenshotProtection();
-    } else {
-      isPageVisible = true;
-    }
+    if (document.hidden) { isPageVisible = false; triggerScreenshotProtection(); }
+    else { isPageVisible = true; }
   });
 
-  // ================================================================
-  // 8. PRINT SCREEN PROTECTION
-  // ================================================================
   let keydownCooldown = false;
-
   document.addEventListener('keydown', function(e) {
     if (keydownCooldown) return;
-    
     let shouldTrigger = false;
-
-    if (e.key === 'PrintScreen') {
-      shouldTrigger = true;
-      e.preventDefault();
-    }
-    
-    if (e.key === 's' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
-      shouldTrigger = true;
-      e.preventDefault();
-    }
-
-    if (e.key === 'Meta' || e.keyCode === 91 || e.keyCode === 92) {
-      shouldTrigger = true;
-    }
-
-    if (
-      (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'x' || e.key === 'X')) ||
-      e.key === 'F12'
-    ) {
-      e.preventDefault();
-      return false;
-    }
-
-    if (shouldTrigger) {
-      keydownCooldown = true;
-      triggerScreenshotProtection();
-      setTimeout(() => {
-        keydownCooldown = false;
-      }, 300);
-    }
+    if (e.key === 'PrintScreen') { shouldTrigger = true; e.preventDefault(); }
+    if (e.key === 's' && e.shiftKey && (e.metaKey || e.ctrlKey)) { shouldTrigger = true; e.preventDefault(); }
+    if (e.key === 'Meta' || e.keyCode === 91 || e.keyCode === 92) shouldTrigger = true;
+    if ((e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'x' || e.key === 'X')) || e.key === 'F12') { e.preventDefault(); return false; }
+    if (shouldTrigger) { keydownCooldown = true; triggerScreenshotProtection(); setTimeout(() => { keydownCooldown = false; }, 300); }
   });
 
   document.addEventListener('keyup', function(e) {
-    if (e.key === 'PrintScreen') {
-      triggerScreenshotProtection();
-      e.preventDefault();
-      return false;
-    }
+    if (e.key === 'PrintScreen') { triggerScreenshotProtection(); e.preventDefault(); return false; }
   });
 
-  // ================================================================
-  // 9. ADDITIONAL PROTECTION
-  // ================================================================
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    return false;
-  });
-
+  document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
   document.addEventListener('copy', function(e) { e.preventDefault(); return false; });
   document.addEventListener('paste', function(e) { e.preventDefault(); return false; });
   document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
   document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
 
-  document.querySelectorAll('img').forEach(img => {
-    img.setAttribute('draggable', 'false');
-  });
+  document.querySelectorAll('img').forEach(img => { img.setAttribute('draggable', 'false'); });
 
-  // ================================================================
-  // 10. PERFORMANCE CLEANUP
-  // ================================================================
   window.addEventListener('beforeunload', function() {
-    if (protectionTriggerTimer) {
-      clearTimeout(protectionTriggerTimer);
-      protectionTriggerTimer = null;
-    }
-    if (dismissCooldownTimer) {
-      clearTimeout(dismissCooldownTimer);
-      dismissCooldownTimer = null;
-    }
-    if (blurTimeout) {
-      clearTimeout(blurTimeout);
-      blurTimeout = null;
-    }
+    if (protectionTriggerTimer) { clearTimeout(protectionTriggerTimer); protectionTriggerTimer = null; }
+    if (dismissCooldownTimer) { clearTimeout(dismissCooldownTimer); dismissCooldownTimer = null; }
+    if (blurTimeout) { clearTimeout(blurTimeout); blurTimeout = null; }
   });
 
-  console.log('🔒 Optimized screenshot protection enabled with 2-second dismiss cooldown.');
-  console.log('📧 EmailJS configured with your credentials.');
-  console.log('📤 Service ID: service_jniipzu');
-  console.log('📝 Template ID: template_wj3oent');
-  console.log('🔑 Public Key: 0cO4He8BMHTz1jgHu');
-  console.log('📊 Google Sheets Web App URL:', GOOGLE_SHEETS_URL);
+  console.log('🔒 Screenshot protection enabled.');
+  console.log('📊 Assessment result loaded:', assessmentResult ? 'YES' : 'NO');
+  console.log('🎯 Broad profile:', isBroadProfile);
+  console.log('🎯 Tracks rendered:', tracks.length, tracks.map(t => t.name).join(', '));
 
   // ================================================================
   // 11. MOBILE NAVIGATION TOGGLE
@@ -936,8 +968,6 @@
         this.classList.toggle('active');
         navLinks.classList.toggle('active');
       });
-      
-      // Close menu when a link is clicked (for better UX)
       navLinks.querySelectorAll('.frs-nav-link').forEach(function(link) {
         link.addEventListener('click', function() {
           hamburger.classList.remove('active');

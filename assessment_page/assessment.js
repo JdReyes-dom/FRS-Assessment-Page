@@ -2,11 +2,11 @@
 // 1. AUTO-GENERATE LIKERT SCALES (Updated with Images)
 // ============================================================
 const scaleOptions = [
-    { image: 'StronglyDisagree.png', label: 'Strongly Disagree' },
-    { image: 'Disagree.png', label: 'Disagree' },
-    { image: 'Neutral.png', label: 'Neutral' },
-    { image: 'Agree.png', label: 'Agree' },
-    { image: 'StronglyAgree.png', label: 'Strongly Agree' }
+    { image: 'StronglyDisagree.png', label: 'Strongly Disagree', value: 1 },
+    { image: 'Disagree.png',         label: 'Disagree',          value: 2 },
+    { image: 'Neutral.png',          label: 'Neutral',           value: 3 },
+    { image: 'Agree.png',            label: 'Agree',             value: 4 },
+    { image: 'StronglyAgree.png',    label: 'Strongly Agree',    value: 5 }
 ];
 
 document.querySelectorAll('.question-block').forEach(block => {
@@ -16,7 +16,7 @@ document.querySelectorAll('.question-block').forEach(block => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'likert-option';
         optionDiv.innerHTML = `
-            <button class="emoji-btn" type="button" title="${opt.label}">
+            <button class="emoji-btn" type="button" title="${opt.label}" data-value="${opt.value}">
                 <img src="${opt.image}" alt="${opt.label}" class="emoji-img">
             </button>
             <span class="emoji-label">${opt.label}</span>
@@ -45,7 +45,7 @@ document.querySelectorAll('.likert-container').forEach(container => {
 });
 
 // ============================================================
-// 2. PAGE NAVIGATION (via progress bar only)
+// 2. PAGE NAVIGATION
 // ============================================================
 function goToPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -81,14 +81,51 @@ function validatePage(pageId) {
     return true;
 }
 
+// ============================================================
+// 3. COLLECT ANSWERS FROM DOM
+// ============================================================
+function collectAnswers() {
+    const answers = {};
+    const allBlocks = document.querySelectorAll('.question-block');
+    allBlocks.forEach((block, index) => {
+        const questionNumber = index + 1; // 1..30
+        const selected = block.querySelector('.emoji-btn.selected');
+        if (selected) {
+            answers[questionNumber] = parseInt(selected.getAttribute('data-value'), 10);
+        }
+    });
+    return answers;
+}
+
+// ============================================================
+// 4. FINISH ASSESSMENT -> CALCULATE SCORES -> REDIRECT
+// ============================================================
 function finishAssessment() {
     if (!validatePage('page-q3')) return;
-    // Navigate to results page
+
+    const answers = collectAnswers();
+    const result = calculateFRSScores(answers);
+
+    // Store in sessionStorage for results page
+    try {
+        sessionStorage.setItem('frsAssessmentResult', JSON.stringify({
+            answers,
+            scores: result.scores,
+            ranked: result.ranked,
+            topTrack: result.topTrack,
+            topScore: result.topScore,
+            timestamp: Date.now()
+        }));
+    } catch (e) {
+        console.warn('Could not save results to sessionStorage:', e);
+    }
+
+    // Redirect to results page
     window.location.href = '../results_page/results.html';
 }
 
 // ============================================================
-// 3. PROGRESS BAR LOGIC
+// 5. PROGRESS BAR LOGIC
 // ============================================================
 const totalSets = 3;
 let currentSet = 1;
@@ -217,7 +254,7 @@ document.getElementById('beginBtn').addEventListener('click', function () {
 updateProgress();
 
 // ============================================================
-// 5. OPTIMIZED SCREENSHOT PROTECTION WITH 2-SECOND DISMISS COOLDOWN
+// 6. OPTIMIZED SCREENSHOT PROTECTION WITH 2-SECOND DISMISS COOLDOWN
 // ============================================================
 let protectionActive = false;
 let isProtectionDismissed = false;
@@ -225,9 +262,8 @@ let protectionTriggerTimer = null;
 let isThrottled = false;
 let dismissCooldownActive = false;
 let dismissCooldownTimer = null;
-const DISMISS_COOLDOWN_DURATION = 2000; // 2 seconds
+const DISMISS_COOLDOWN_DURATION = 2000;
 
-// DOM References
 const shield = document.getElementById('shield1');
 const flash = document.getElementById('screenshotFlash');
 const black = document.getElementById('screenshotBlack');
@@ -235,39 +271,31 @@ const message = document.getElementById('screenshotMessage');
 const dismissBtn = document.getElementById('dismissProtection');
 
 function triggerScreenshotProtection() {
-  // Prevent multiple triggers
   if (protectionActive) return;
   if (isThrottled) return;
-  
-  // Throttle: prevent more than one trigger per 2 seconds
+
   isThrottled = true;
-  setTimeout(() => {
-    isThrottled = false;
-  }, 2000);
-  
+  setTimeout(() => { isThrottled = false; }, 2000);
+
   protectionActive = true;
   isProtectionDismissed = false;
 
-  // Reset dismiss cooldown when protection triggers
   dismissCooldownActive = true;
   if (dismissCooldownTimer) {
     clearTimeout(dismissCooldownTimer);
     dismissCooldownTimer = null;
   }
 
-  // Set dismiss cooldown timer (2 seconds before user can dismiss)
   dismissCooldownTimer = setTimeout(() => {
     dismissCooldownActive = false;
     dismissCooldownTimer = null;
-    // Enable the dismiss button visually
     if (dismissBtn) {
       dismissBtn.style.opacity = '1';
       dismissBtn.style.cursor = 'pointer';
       dismissBtn.disabled = false;
     }
   }, DISMISS_COOLDOWN_DURATION);
-  
-  // Only apply styles if not already active
+
   if (!shield.style.opacity || shield.style.opacity !== '0.8') {
     shield.style.opacity = '0.8';
     flash.classList.add('active');
@@ -275,7 +303,6 @@ function triggerScreenshotProtection() {
     message.classList.add('active');
   }
 
-  // Disable dismiss button during cooldown
   if (dismissBtn) {
     dismissBtn.style.opacity = '0.5';
     dismissBtn.style.cursor = 'not-allowed';
@@ -284,130 +311,98 @@ function triggerScreenshotProtection() {
 }
 
 function dismissProtection(e) {
-  if (e) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
+  if (e) { e.preventDefault(); e.stopPropagation(); }
 
-  // GUARD: Prevent dismissal during cooldown
   if (dismissCooldownActive) {
-    // Visual feedback that button is disabled
     if (dismissBtn) {
       dismissBtn.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        dismissBtn.style.transform = '';
-      }, 200);
+      setTimeout(() => { dismissBtn.style.transform = ''; }, 200);
     }
     return;
   }
 
   if (!protectionActive) return;
   if (isProtectionDismissed) return;
-  
+
   isProtectionDismissed = true;
-  
+
   flash.classList.remove('active');
   black.classList.remove('active');
   message.classList.remove('active');
   shield.style.opacity = '';
-  
-  // Reset dismiss button state
+
   if (dismissBtn) {
     dismissBtn.style.opacity = '1';
     dismissBtn.style.cursor = 'pointer';
     dismissBtn.disabled = false;
   }
 
-  // Clear dismiss cooldown timer
   if (dismissCooldownTimer) {
     clearTimeout(dismissCooldownTimer);
     dismissCooldownTimer = null;
   }
   dismissCooldownActive = false;
-  
+
   protectionActive = false;
 }
 
-// OK button listener
 if (dismissBtn) {
   dismissBtn.addEventListener('click', dismissProtection);
   dismissBtn.addEventListener('mousedown', (e) => e.stopPropagation());
 }
 
-// Click outside to dismiss
 if (message) {
   message.addEventListener('click', function(e) {
-    if (e.target === this) {
-      dismissProtection(e);
-    }
+    if (e.target === this) dismissProtection(e);
   });
 }
 
-// ===== OPTIMIZED APP SWITCHING DETECTION =====
+// ===== APP SWITCHING DETECTION =====
 let isPageVisible = true;
 let isPageFocused = true;
 let blurTimeout = null;
 
-// Detect when window loses focus (switching to another app)
 window.addEventListener('blur', function() {
   isPageFocused = false;
-  
-  if (blurTimeout) {
-    clearTimeout(blurTimeout);
-    blurTimeout = null;
-  }
-  
+  if (blurTimeout) { clearTimeout(blurTimeout); blurTimeout = null; }
   blurTimeout = setTimeout(() => {
-    if (isPageVisible) {
-      triggerScreenshotProtection();
-    }
+    if (isPageVisible) triggerScreenshotProtection();
     blurTimeout = null;
   }, 50);
 });
 
-// Detect when window gains focus (coming back to the app)
 window.addEventListener('focus', function() {
   isPageFocused = true;
-  if (blurTimeout) {
-    clearTimeout(blurTimeout);
-    blurTimeout = null;
-  }
+  if (blurTimeout) { clearTimeout(blurTimeout); blurTimeout = null; }
 });
 
-// Detect when user switches tabs
 document.addEventListener('visibilitychange', function() {
   if (document.hidden) {
     isPageVisible = false;
-    // Trigger protection when tab becomes hidden
     triggerScreenshotProtection();
   } else {
     isPageVisible = true;
   }
 });
 
-// ===== OPTIMIZED PRINT SCREEN PROTECTION =====
+// ===== PRINT SCREEN PROTECTION =====
 let keydownCooldown = false;
 
 document.addEventListener('keydown', function(e) {
   if (keydownCooldown) return;
-  
   let shouldTrigger = false;
 
   if (e.key === 'PrintScreen') {
     shouldTrigger = true;
     e.preventDefault();
   }
-  
   if (e.key === 's' && e.shiftKey && (e.metaKey || e.ctrlKey)) {
     shouldTrigger = true;
     e.preventDefault();
   }
-
   if (e.key === 'Meta' || e.keyCode === 91 || e.keyCode === 92) {
     shouldTrigger = true;
   }
-
-  // Block Ctrl+C, Ctrl+X, Ctrl+U, F12
   if (
     (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'x' || e.key === 'X')) ||
     e.key === 'F12'
@@ -419,9 +414,7 @@ document.addEventListener('keydown', function(e) {
   if (shouldTrigger) {
     keydownCooldown = true;
     triggerScreenshotProtection();
-    setTimeout(() => {
-      keydownCooldown = false;
-    }, 300);
+    setTimeout(() => { keydownCooldown = false; }, 300);
   }
 });
 
@@ -433,12 +426,7 @@ document.addEventListener('keyup', function(e) {
   }
 });
 
-// ===== ADDITIONAL PROTECTION =====
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-  return false;
-});
-
+document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
 document.addEventListener('copy', function(e) { e.preventDefault(); return false; });
 document.addEventListener('paste', function(e) { e.preventDefault(); return false; });
 document.addEventListener('cut', function(e) { e.preventDefault(); return false; });
@@ -448,20 +436,10 @@ document.querySelectorAll('img').forEach(img => {
   img.setAttribute('draggable', 'false');
 });
 
-// === PERFORMANCE: Clean up timers on page unload ===
 window.addEventListener('beforeunload', function() {
-  if (protectionTriggerTimer) {
-    clearTimeout(protectionTriggerTimer);
-    protectionTriggerTimer = null;
-  }
-  if (dismissCooldownTimer) {
-    clearTimeout(dismissCooldownTimer);
-    dismissCooldownTimer = null;
-  }
-  if (blurTimeout) {
-    clearTimeout(blurTimeout);
-    blurTimeout = null;
-  }
+  if (protectionTriggerTimer) { clearTimeout(protectionTriggerTimer); protectionTriggerTimer = null; }
+  if (dismissCooldownTimer) { clearTimeout(dismissCooldownTimer); dismissCooldownTimer = null; }
+  if (blurTimeout) { clearTimeout(blurTimeout); blurTimeout = null; }
 });
 
 console.log('🔒 Optimized screenshot protection enabled with 2-second dismiss cooldown.');
