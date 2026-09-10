@@ -44,7 +44,7 @@
     </div>
   </nav>
 
-  <!-- ===== SCREENSHOT PROTECTION LAYERS ===== -->
+  <!-- ===== SCREENSHOT PROTECTION ===== -->
   <div class="screenshot-shield" id="shield1"></div>
   <div class="screenshot-flash" id="screenshotFlash"></div>
   <div class="screenshot-black" id="screenshotBlack"></div>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <!-- ===== BACKGROUND ACCENT SHAPES ===== -->
+  <!-- ===== BACKGROUND SHAPES ===== -->
   <div class="bg-shape bg-shape-1"></div>
   <div class="bg-shape bg-shape-2"></div>
   <div class="bg-shape square bg-shape-3"></div>
@@ -80,12 +80,10 @@
 
   <div class="results-container">
 
-    <!-- ===== LOGO - TOP LEFT CORNER ===== -->
     <div class="logo-container">
       <img src="images/CloudSwyft_Logo.png" alt="CloudSwyft">
     </div>
 
-    <!-- ===== BUTTONS CONTAINER ===== -->
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
       <div class="home-button-container" style="margin-bottom: 0;">
         <a href="../FRS_PreTest_LandingPage/frs-pretest-landing.html" class="home-button">
@@ -105,7 +103,6 @@
       </div>
     </div>
 
-    <!-- ===== CLOUDSWYFT PANEL ===== -->
     <div class="cloud-panel">
       <div style="flex:1;">
         <div class="badge">
@@ -123,13 +120,11 @@
       </div>
     </div>
 
-    <!-- ===== ASSESSMENT SCORES ===== -->
     <div class="score-summary">
       <div class="label" id="scoreSummaryLabel">📈 Track Match Scores</div>
       <div class="score-bars" id="scoreBars"></div>
     </div>
 
-    <!-- ===== RECOMMENDED TRACKS ===== -->
     <div style="margin-bottom: 0.75rem;">
       <span class="tag track" style="font-size:14px; padding:6px 24px;" id="recommendHeader">⭐ Top 5 Recommended Tracks</span>
     </div>
@@ -155,7 +150,6 @@
       </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
     <div class="footer-meta">
       <span>UI/UX · Anahaw · Masculino · Reyes · Santos</span>
       <span style="display:inline-block; margin-left:1.2rem; opacity:0.6;">CloudSwyft</span>
@@ -163,7 +157,7 @@
 
   </div>
 
-  <!-- ===== MODAL OVERLAY ===== -->
+  <!-- ===== MODAL ===== -->
   <div class="modal-overlay" id="requestModal">
     <div class="modal-content">
       <button class="modal-close" id="modalClose">&times;</button>
@@ -195,7 +189,6 @@
     </div>
   </div>
 
-  <!-- ===== SCORING DATA ===== -->
   <script src="../assessment_page/frs-scoring-data.js"></script>
 
 <script>
@@ -219,13 +212,10 @@
     console.warn('Could not parse assessment result:', e);
   }
 
-  // ================================================================
-  // 3. CONSTANTS
-  // ================================================================
   const LOW_SCORE_THRESHOLD = 3;
 
   // ================================================================
-  // 4. FALLBACK TRACKS
+  // 3. FALLBACK TRACKS
   // ================================================================
   const FALLBACK_TRACKS = [
     { name: "Data Analytics", desc: "Data analysis · Machine learning · Statistical modeling", detail: "Complete the assessment to see your personalized track recommendation.", match: "0%", matchClass: "", image: "images/Data_Analytics.png", overview: "images/Data_Analytics.png", icon: "images/Data_Analytics.png" },
@@ -234,7 +224,7 @@
   ];
 
   // ================================================================
-  // 5. HELPERS
+  // 4. HELPERS
   // ================================================================
   function getTrackDesc(trackKey) {
     const descriptors = {
@@ -301,6 +291,116 @@
   }
 
   // ================================================================
+  // 5. PERSONALIZED "WHY IT FITS" GENERATOR
+  //    Uses the user's top-scoring questions to build an explanation.
+  // ================================================================
+
+  // Human-readable trait descriptions per question
+  // Key = question number, value = { trait, technical }
+  const QUESTION_TRAITS = {
+    1:  { trait: "thrives under fast-paced deadlines", technical: "high-velocity delivery environments" },
+    2:  { trait: "enjoys drilling into complex tasks", technical: "deep technical problem-solving" },
+    3:  { trait: "energized by competitive teams", technical: "collaborative sprint-based delivery" },
+    4:  { trait: "prefers structured work with clear rules", technical: "well-defined specs and processes" },
+    5:  { trait: "works well independently / remotely", technical: "self-directed, async workflows" },
+    6:  { trait: "stays focused in busy environments", technical: "high-noise, multi-threaded work" },
+    7:  { trait: "enjoys collaborative back-and-forth", technical: "cross-functional team coordination" },
+    8:  { trait: "uses tools and resources efficiently", technical: "tooling-driven productivity" },
+    9:  { trait: "thrives in creative spaces", technical: "design-driven environments" },
+    10: { trait: "likes flowcharts and visual guides", technical: "system modeling and documentation" },
+    11: { trait: "loses track of time designing/drawing", technical: "visual design and creative interfaces" },
+    12: { trait: "enjoys breaking down complex systems", technical: "system architecture and analysis" },
+    13: { trait: "naturally drawn to numbers and logic", technical: "quantitative and algorithmic thinking" },
+    14: { trait: "constantly explores new topics", technical: "research-driven learning" },
+    15: { trait: "loves organizing events and people", technical: "coordination and workflow planning" },
+    16: { trait: "loves building from scratch", technical: "hands-on creation and prototyping" },
+    17: { trait: "expresses ideas clearly through writing", technical: "documentation and knowledge transfer" },
+    18: { trait: "follows the latest tech trends", technical: "continuous upskilling in new tools" },
+    19: { trait: "enjoys puzzles and deep logic", technical: "analytical and algorithmic challenges" },
+    20: { trait: "notices detail in surroundings/maps", technical: "spatial and pattern awareness" },
+    21: { trait: "keeps things organized for easy access", technical: "structured knowledge and asset management" },
+    22: { trait: "bounces back quickly from setbacks", technical: "resilient iteration and debugging" },
+    23: { trait: "uses checklists and clear signs", technical: "systematic workflows and QA" },
+    24: { trait: "works productively behind the scenes", technical: "deep-focus individual contribution" },
+    25: { trait: "stays calm under high stress", technical: "incident response and crisis handling" },
+    26: { trait: "naturally curious about how things work", technical: "root-cause analysis and exploration" },
+    27: { trait: "explains complex ideas simply", technical: "clear technical communication" },
+    28: { trait: "adapts easily to change", technical: "agile and fast-changing environments" },
+    29: { trait: "patient with tedious troubleshooting", technical: "methodical debugging and QA" },
+    30: { trait: "keeps peers engaged when speaking", technical: "stakeholder communication and demos" }
+  };
+
+  // Which questions matter most per track (for explanation)
+  const TRACK_KEY_QUESTIONS = {
+    "data-science": [2, 5, 12, 13, 14, 19, 24, 26],
+    "big-data": [4, 10, 13, 21, 23, 29],
+    "artificial-intelligence": [2, 5, 9, 12, 14, 16, 24, 26],
+    "devops": [1, 3, 7, 15, 22, 25, 28, 29],
+    "modern-it-support": [3, 7, 15, 17, 23, 25, 27, 29, 30],
+    "internet-of-things": [9, 14, 16, 20, 26],
+    "software-development": [2, 12, 19, 24, 29],
+    "data-analyst": [4, 6, 10, 13, 19, 20, 21, 23],
+    "cyber-security": [4, 6, 12, 19, 21, 22, 25, 29],
+    "web-development": [1, 5, 9, 11, 16, 17, 24, 27, 30]
+  };
+
+  // Track-specific technical themes
+  const TRACK_TECH_THEMES = {
+    "data-science": "statistical modeling, machine learning pipelines, and data storytelling",
+    "big-data": "data pipeline engineering, ETL orchestration, and large-scale data processing",
+    "artificial-intelligence": "neural networks, model training, and intelligent system design",
+    "devops": "CI/CD automation, cloud infrastructure, and reliable deployment workflows",
+    "modern-it-support": "technical troubleshooting, user support, and service management",
+    "internet-of-things": "embedded systems, sensor networks, and smart device integration",
+    "software-development": "software architecture, system design, and full-stack engineering",
+    "data-analyst": "data wrangling, reporting, and insight-driven decision support",
+    "cyber-security": "threat detection, system defense, and security operations",
+    "web-development": "front-end interfaces, back-end services, and full-stack web experiences"
+  };
+
+  function generateWhyItFits(trackKey) {
+    const trackName = (FRS_TRACK_PROFILES[trackKey] && FRS_TRACK_PROFILES[trackKey].name) || trackKey;
+    const theme = TRACK_TECH_THEMES[trackKey] || "technical problem-solving";
+    const keyQs = TRACK_KEY_QUESTIONS[trackKey] || [];
+
+    // No answers? Return generic fallback
+    if (!assessmentResult || !assessmentResult.answers) {
+      return `Your responses aligned with the ${trackName} track. This pathway emphasizes ${theme} and matches your interests, strengths, and preferences as reflected in your assessment.`;
+    }
+
+    const answers = assessmentResult.answers;
+
+    // Sort key questions by how strongly the user agreed
+    const scoredQs = keyQs
+      .map(q => ({ q, val: answers[q] || 0 }))
+      .filter(item => item.val >= 4) // Only include high-agreement answers
+      .sort((a, b) => b.val - a.val);
+
+    // Get top 3 traits (or fewer)
+    const topTraits = scoredQs.slice(0, 3).map(item => QUESTION_TRAITS[item.q] && QUESTION_TRAITS[item.q].trait).filter(Boolean);
+    const topTechnical = scoredQs.slice(0, 3).map(item => QUESTION_TRAITS[item.q] && QUESTION_TRAITS[item.q].technical).filter(Boolean);
+
+    // If no high-agreement answers, use generic
+    if (topTraits.length === 0) {
+      return `Your responses aligned with the ${trackName} track. This pathway emphasizes ${theme}, and your overall answers reflected interests and strengths that map well to this field.`;
+    }
+
+    // Build the personalized explanation
+    const traitList = joinWithAnd(topTraits);
+    const techList = joinWithAnd(topTechnical);
+
+    return `You ${traitList}, which aligns well with ${theme}. On the technical side, this track focuses on ${techList} — matching both your working style and your analytical strengths.`;
+  }
+
+  // Helper: "a, b, and c"
+  function joinWithAnd(arr) {
+    if (arr.length === 0) return '';
+    if (arr.length === 1) return arr[0];
+    if (arr.length === 2) return arr[0] + ' and ' + arr[1];
+    return arr.slice(0, -1).join(', ') + ', and ' + arr[arr.length - 1];
+  }
+
+  // ================================================================
   // 6. BUILD TRACKS: TOP 5 + TIE EXPANSION
   // ================================================================
   let tracks = FALLBACK_TRACKS;
@@ -342,7 +442,8 @@
       else if (idx === 1) matchClass = "";
       else matchClass = "medium";
 
-      const whyFits = `Your responses aligned strongly with the ${profile.name} track. This pathway matches your interests, strengths, and preferences as reflected in your assessment.`;
+      // NEW: Generate personalized "why it fits"
+      const whyFits = generateWhyItFits(item.key);
 
       return {
         key: item.key,
@@ -364,7 +465,7 @@
   // 7. RENDER DYNAMIC CONTENT
   // ================================================================
   function renderDynamicContent() {
-    // ----- Cloud Features Panel -----
+    // Cloud Features
     const cloudFeatures = document.getElementById('cloudFeatures');
     if (cloudFeatures) {
       let roleText, passionText, qualityText, growthText, nextText;
@@ -415,7 +516,7 @@
       `;
     }
 
-    // ----- Score Bars (top 4 tracks with real scores) -----
+    // Score Bars
     const scoreBars = document.getElementById('scoreBars');
     const scoreSummaryBox = document.querySelector('.score-summary');
 
@@ -440,7 +541,7 @@
       scoreSummaryBox.style.display = 'none';
     }
 
-    // ----- Broad Profile Warning -----
+    // Broad Profile Warning
     const broadWarning = document.getElementById('broadWarning');
     if (broadWarning) {
       if (isBroadProfile) {
@@ -456,7 +557,7 @@
       }
     }
 
-    // ----- Tie Message -----
+    // Tie Message
     const tieMessage = document.getElementById('tieMessage');
     const recommendHeader = document.getElementById('recommendHeader');
     if (tieMessage && tracks.length > 0) {
@@ -477,7 +578,7 @@
       }
     }
 
-    // ----- Track Cards -----
+    // Track Cards
     const trackGrid = document.getElementById('trackGrid');
     if (trackGrid) {
       trackGrid.innerHTML = '';
@@ -538,7 +639,7 @@
   }
 
   // ================================================================
-  // 8. TRACK DETAIL ANIMATION
+  // 8. TRACK DETAIL
   // ================================================================
   let activeTrackIndex = -1;
   let isAnimating = false;
@@ -650,7 +751,7 @@
 
     activeTrackIndex = -1;
     pendingTrackIndex = -1;
-    
+
     if (transitionTimeout) {
       clearTimeout(transitionTimeout);
       transitionTimeout = null;
@@ -658,7 +759,7 @@
   }
 
   // ================================================================
-  // 9. REQUEST A COPY MODAL — REAL SCORES FOR ALL TRACKS
+  // 9. REQUEST A COPY MODAL
   // ================================================================
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('requestModal');
@@ -687,15 +788,9 @@
     }
 
     closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
-    });
-
+    modal.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-      }
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 
     form.addEventListener('submit', function(e) {
@@ -709,33 +804,19 @@
       const emailError = document.getElementById('emailError');
 
       if (!name.value.trim() || name.value.trim().length < 2) {
-        nameError.classList.add('show');
-        isValid = false;
-      } else {
-        nameError.classList.remove('show');
-      }
+        nameError.classList.add('show'); isValid = false;
+      } else { nameError.classList.remove('show'); }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
-        emailError.classList.add('show');
-        isValid = false;
-      } else {
-        emailError.classList.remove('show');
-      }
+        emailError.classList.add('show'); isValid = false;
+      } else { emailError.classList.remove('show'); }
 
       if (!isValid) return;
 
-      // ============================================================
-      // Build dynamic payloads — REAL scores for ALL tracks
-      // ============================================================
-      const ranked = (assessmentResult && assessmentResult.ranked)
-        ? assessmentResult.ranked
-        : [];
-
+      const ranked = (assessmentResult && assessmentResult.ranked) ? assessmentResult.ranked : [];
       const topScore = (ranked[0] && ranked[0].score) || 1;
 
-      // Build a formatted score block for the email
-      // Example: "Web Development: 100%"
       const scoreBlock = ranked
         .map(item => {
           const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
@@ -762,7 +843,6 @@
         total_tracks: ranked.length
       };
 
-      // Loop through every displayed track (for the recommended-tracks block)
       tracks.forEach((t, i) => {
         const n = i + 1;
         sheetData[`track${n}`] = t.name || '';
@@ -773,11 +853,9 @@
         emailParams[`track_${n}_desc`] = t.desc || '';
         emailParams[`track_${n}_detail`] = t.detail || '';
 
-        emailParams[`track_${n}_full`] =
-          `${t.name} — Match: ${t.match}\n${t.desc}\n${t.detail}`;
+        emailParams[`track_${n}_full`] = `${t.name} — Match: ${t.match}\n${t.desc}\n${t.detail}`;
       });
 
-      // Combined "all tracks" block for the email body
       emailParams.all_tracks = tracks
         .map((t, i) => `${i + 1}. ${t.name} — Match: ${t.match}\n   ${t.desc}\n   ${t.detail}`)
         .join('\n\n');
@@ -792,40 +870,30 @@
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
-      // Fire-and-forget Google Sheets (non-blocking)
       fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(sheetData)
       })
-      .then(() => {
-        console.log('✅ Google Sheets request sent (opaque response)');
-      })
-      .catch((err) => {
-        console.warn('⚠️ Google Sheets fetch failed (non-blocking):', err);
-      });
+      .then(() => console.log('✅ Google Sheets request sent'))
+      .catch((err) => console.warn('⚠️ Google Sheets fetch failed:', err));
 
-      // Send the email — this is what the user actually cares about
       emailjs.send('service_jniipzu', 'template_wj3oent', emailParams)
         .then(function(response) {
-          console.log('✅ Email sent successfully!', response);
-
+          console.log('✅ Email sent!', response);
           form.style.display = 'none';
           successMsg.style.display = 'block';
           submitBtn.textContent = 'Send Request';
           submitBtn.disabled = false;
-
           setTimeout(closeModal, 3000);
         })
         .catch(function(error) {
-          console.error('❌ Email submission failed. Full error:', error);
-
+          console.error('❌ Email failed:', error);
           let errorMsg = 'Failed to send your request.\n\n';
-          if (error.text) errorMsg += '📝 Error details: ' + error.text + '\n';
-          if (error.status) errorMsg += '📊 Status: ' + error.status + '\n';
-          if (error.message) errorMsg += '💬 Message: ' + error.message + '\n';
-
+          if (error.text) errorMsg += '📝 ' + error.text + '\n';
+          if (error.status) errorMsg += '📊 ' + error.status + '\n';
+          if (error.message) errorMsg += '💬 ' + error.message + '\n';
           alert(errorMsg);
           submitBtn.textContent = 'Send Request';
           submitBtn.disabled = false;
@@ -957,12 +1025,12 @@
   console.log('🎯 Tracks rendered:', tracks.length, tracks.map(t => t.name).join(', '));
 
   // ================================================================
-  // 11. MOBILE NAVIGATION TOGGLE
+  // 11. MOBILE NAV TOGGLE
   // ================================================================
   document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('frsNavHamburger');
     const navLinks = document.querySelector('.frs-navbar-links-wrapper');
-    
+
     if (hamburger && navLinks) {
       hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
