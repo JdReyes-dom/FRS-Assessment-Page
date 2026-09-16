@@ -292,11 +292,7 @@
 
   // ================================================================
   // 5. PERSONALIZED "WHY IT FITS" GENERATOR
-  //    Uses the user's top-scoring questions to build an explanation.
   // ================================================================
-
-  // Human-readable trait descriptions per question
-  // Key = question number, value = { trait, technical }
   const QUESTION_TRAITS = {
     1:  { trait: "thrives under fast-paced deadlines", technical: "high-velocity delivery environments" },
     2:  { trait: "enjoys drilling into complex tasks", technical: "deep technical problem-solving" },
@@ -330,7 +326,6 @@
     30: { trait: "keeps peers engaged when speaking", technical: "stakeholder communication and demos" }
   };
 
-  // Which questions matter most per track (for explanation)
   const TRACK_KEY_QUESTIONS = {
     "data-science": [2, 5, 12, 13, 14, 19, 24, 26],
     "big-data": [4, 10, 13, 21, 23, 29],
@@ -344,7 +339,6 @@
     "web-development": [1, 5, 9, 11, 16, 17, 24, 27, 30]
   };
 
-  // Track-specific technical themes
   const TRACK_TECH_THEMES = {
     "data-science": "statistical modeling, machine learning pipelines, and data storytelling",
     "big-data": "data pipeline engineering, ETL orchestration, and large-scale data processing",
@@ -363,36 +357,30 @@
     const theme = TRACK_TECH_THEMES[trackKey] || "technical problem-solving";
     const keyQs = TRACK_KEY_QUESTIONS[trackKey] || [];
 
-    // No answers? Return generic fallback
     if (!assessmentResult || !assessmentResult.answers) {
       return `Your responses aligned with the ${trackName} track. This pathway emphasizes ${theme} and matches your interests, strengths, and preferences as reflected in your assessment.`;
     }
 
     const answers = assessmentResult.answers;
 
-    // Sort key questions by how strongly the user agreed
     const scoredQs = keyQs
       .map(q => ({ q, val: answers[q] || 0 }))
-      .filter(item => item.val >= 4) // Only include high-agreement answers
+      .filter(item => item.val >= 4)
       .sort((a, b) => b.val - a.val);
 
-    // Get top 3 traits (or fewer)
     const topTraits = scoredQs.slice(0, 3).map(item => QUESTION_TRAITS[item.q] && QUESTION_TRAITS[item.q].trait).filter(Boolean);
     const topTechnical = scoredQs.slice(0, 3).map(item => QUESTION_TRAITS[item.q] && QUESTION_TRAITS[item.q].technical).filter(Boolean);
 
-    // If no high-agreement answers, use generic
     if (topTraits.length === 0) {
       return `Your responses aligned with the ${trackName} track. This pathway emphasizes ${theme}, and your overall answers reflected interests and strengths that map well to this field.`;
     }
 
-    // Build the personalized explanation
     const traitList = joinWithAnd(topTraits);
     const techList = joinWithAnd(topTechnical);
 
     return `You ${traitList}, which aligns well with ${theme}. On the technical side, this track focuses on ${techList} — matching both your working style and your analytical strengths.`;
   }
 
-  // Helper: "a, b, and c"
   function joinWithAnd(arr) {
     if (arr.length === 0) return '';
     if (arr.length === 1) return arr[0];
@@ -442,7 +430,6 @@
       else if (idx === 1) matchClass = "";
       else matchClass = "medium";
 
-      // NEW: Generate personalized "why it fits"
       const whyFits = generateWhyItFits(item.key);
 
       return {
@@ -759,7 +746,7 @@
   }
 
   // ================================================================
-  // 9. REQUEST A COPY MODAL
+  // 9. REQUEST A COPY MODAL — SENDS REAL TRACK DATA
   // ================================================================
   document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('requestModal');
@@ -814,48 +801,61 @@
 
       if (!isValid) return;
 
-      const ranked = (assessmentResult && assessmentResult.ranked) ? assessmentResult.ranked : [];
-      const topScore = (ranked[0] && ranked[0].score) || 1;
+      // ============================================================
+      // Build CLEAN track payload from actual ranked results
+      // ============================================================
+      const rankedList = (assessmentResult && assessmentResult.ranked) ? assessmentResult.ranked : [];
+      const topScore = (rankedList[0] && rankedList[0].score) || 1;
 
-      const scoreBlock = ranked
+      // Build a single block string: "index|name|score|match%"
+      // Example: "1|Web Development|14.95|100%\n2|Artificial Intelligence|12.45|83%"
+      const tracksBlock = rankedList.slice(0, 10).map((item, i) => {
+        const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
+        return `${i + 1}|${item.name}|${item.score}|${pct}%`;
+      }).join('\n');
+
+      // ============================================================
+      // Google Sheet payload — one block field
+      // ============================================================
+      const sheetData = {
+        fullName: name.value.trim(),
+        email: email.value.trim(),
+        phone: phone.value.trim() || 'Not provided',
+        tracksBlock: tracksBlock
+      };
+
+      // Full score block (used in email)
+      const scoreBlock = rankedList
         .map(item => {
           const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
           return item.name + ': ' + pct + '%';
         })
         .join('\n');
 
-      const sheetData = {
-        fullName: name.value.trim(),
-        email: email.value.trim(),
-        phone: phone.value.trim() || 'Not provided',
-        all_scores: scoreBlock
-      };
-
+      // ============================================================
+      // EmailJS payload
+      // ============================================================
       const emailParams = {
         to_name: name.value.trim(),
         to_email: email.value.trim(),
         phone: phone.value.trim() || 'Not provided',
         all_scores: scoreBlock,
-        all_scores_list: ranked.map(item => {
+        all_scores_list: rankedList.map(item => {
           const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
           return item.name + ' — ' + pct + '%';
         }).join('\n'),
-        total_tracks: ranked.length
+        total_tracks: rankedList.length
       };
 
-      tracks.forEach((t, i) => {
+      // Per-track fields for email template
+      rankedList.slice(0, 10).forEach((item, i) => {
         const n = i + 1;
-        sheetData[`track${n}`] = t.name || '';
-        sheetData[`track${n}Match`] = t.match || '';
-
-        emailParams[`track_${n}_name`] = t.name || '';
-        emailParams[`track_${n}_match`] = t.match || '';
-        emailParams[`track_${n}_desc`] = t.desc || '';
-        emailParams[`track_${n}_detail`] = t.detail || '';
-
-        emailParams[`track_${n}_full`] = `${t.name} — Match: ${t.match}\n${t.desc}\n${t.detail}`;
+        const pct = topScore > 0 ? Math.round((item.score / topScore) * 100) : 0;
+        emailParams[`track_${n}_name`] = item.name;
+        emailParams[`track_${n}_match`] = pct + '%';
       });
 
+      // Recommended tracks block for email
       emailParams.all_tracks = tracks
         .map((t, i) => `${i + 1}. ${t.name} — Match: ${t.match}\n   ${t.desc}\n   ${t.detail}`)
         .join('\n\n');
@@ -870,6 +870,7 @@
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
+      // Fire-and-forget Google Sheets (non-blocking)
       fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -879,6 +880,7 @@
       .then(() => console.log('✅ Google Sheets request sent'))
       .catch((err) => console.warn('⚠️ Google Sheets fetch failed:', err));
 
+      // Send email — this is what user cares about
       emailjs.send('service_jniipzu', 'template_wj3oent', emailParams)
         .then(function(response) {
           console.log('✅ Email sent!', response);
